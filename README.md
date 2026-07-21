@@ -3,8 +3,8 @@
 Este proyecto contiene la landing y el sitio web de Reloj181 para desplegar en Vercel.
 
 ## Archivos principales
+- `Reloj181 Sitio.dc.html` — versión principal del sitio actualizada
 - `Reloj181 Landing.dc.html`
-- `Reloj181 Sitio.dc.html`
 - `support.js`
 - `image-slot.js`
 - `images/`
@@ -17,4 +17,4 @@ Este proyecto contiene la landing y el sitio web de Reloj181 para desplegar en V
 4. Vercel servirá el sitio automáticamente.
 
 ## Nota
-La página de entrada está en `index.html` y redirige a la landing principal.
+La página de entrada está en `index.html` y redirige al sitio principal actualizado.
