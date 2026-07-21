@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Karla:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #FAF4EC; }
+  a { color: #B85C43; text-decoration: none; }
+  a:hover { color: #96452F; }
+  @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  ::-webkit-scrollbar { height: 0; }
+</style>
+</helmet>
+
+<div style="font-family: 'Karla', sans-serif; color: #33291F; background: #FAF4EC; min-height: 100vh; overflow-x: hidden;">
+
+  <!-- Nav -->
+  <header style="display: flex; align-items: center; justify-content: space-between; background: #23402F; max-width: 1116px; margin: 14px auto 0; padding: 14px 26px; border-radius: 999px; box-shadow: 0 10px 26px rgba(35,64,47,0.22);">
+    <div style="display: flex; align-items: baseline; gap: 8px;">
+      <span style="font-family: 'Instrument Serif', serif; font-size: 27px; color: #F2ECDF;">Reloj181</span>
+      <span style="width: 7px; height: 7px; border-radius: 50%; background: #E8B84B; display: inline-block;"></span>
+    </div>
+    <nav style="display: flex; gap: 26px; font-size: 13.5px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;">
+      <a href="#paquetes" style="color: #F2ECDF;" style-hover="color: #E8B84B;">Smash Cakes</a>
+      <a href="#galeria" style="color: #B9CDB8;" style-hover="color: #E8B84B;">Galería</a>
+      <a href="#trabajos" style="color: #B9CDB8;" style-hover="color: #E8B84B;">Otros trabajos</a>
+    </nav>
+    <a href="{{ waLink }}" style="background: #E8B84B; color: #3A2B08; padding: 10px 20px; border-radius: 999px; font-size: 14px; font-weight: 800;" style-hover="background: #F0C55E; color: #3A2B08;">Agendar sesión</a>
+  </header>
+
+  <!-- Hero -->
+  <section style="max-width: 1180px; margin: 0 auto; padding: 36px 32px 90px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center;">
+    <div style="display: flex; flex-direction: column; gap: 26px; position: relative;">
+      <span style="align-self: flex-start; background: #F3DFC9; color: #9A5B2B; font-size: 13px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 14px; border-radius: 999px;">Fotografía · Video · Drone</span>
+      <h1 style="font-family: 'Karla', sans-serif; font-weight: 800; font-size: 64px; line-height: 1.02; margin: 0; letter-spacing: -0.03em; text-transform: uppercase;">Déjanos<br>contar <em style="font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; text-transform: none; font-size: 76px; color: #D26A4F; letter-spacing: 0;">tu historia</em><span style="color: #E8B84B;">.</span></h1>
+      <p style="font-size: 19px; line-height: 1.6; color: #6B5A48; margin: 0; max-width: 46ch; text-wrap: pretty;">Desde el dulce caos de un Smash Cake hasta bodas, XV años y contenido para marcas. Con estudio en Guadalajara y cobertura en CDMX y Cuernavaca.</p>
+      <div style="display: flex; gap: 18px; align-items: center; flex-wrap: wrap;">
+        <a href="{{ waLink }}" style="display: inline-flex; align-items: center; gap: 10px; background: #2F6B4A; color: #F2F8EF; padding: 15px 28px; border-radius: 999px; font-size: 16px; font-weight: 800; box-shadow: 0 10px 24px rgba(47,107,74,0.32);" style-hover="background: #245239;">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #A8D8B4; display: inline-block;"></span>
+          Agendar por WhatsApp
+        </a>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <img src="images/emily-camara.png" alt="Emily Ramos" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; object-position: 70% 20%; border: 2px solid #FFFFFF; box-shadow: 0 4px 12px rgba(51,41,31,0.2);">
+          <div style="display: flex; flex-direction: column; line-height: 1.25;">
+            <span style="font-size: 14px; font-weight: 800;">Emily Ramos</span>
+            <span style="font-size: 12.5px; color: #8A7660;">Fotógrafa principal</span>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; gap: 22px; margin-top: 6px; font-size: 13.5px; color: #8A7660; font-weight: 700;">
+        <span>Guadalajara</span><span style="color: #D9C6AC;">·</span>
+        <span>Ciudad de México</span><span style="color: #D9C6AC;">·</span>
+        <span>Cuernavaca</span>
+      </div>
+    </div>
+
+    <div style="position: relative; height: 580px;">
+      <div style="position: absolute; top: 10px; left: 190px; width: 80px; height: 80px; border-radius: 50%; background: #E8B84B; z-index: 0;"></div>
+      <div style="position: absolute; bottom: 130px; right: 160px; width: 56px; height: 56px; border-radius: 50%; background: #B9D4B4; z-index: 0;"></div>
+      <!-- carta principal: smash cake -->
+      <div style="position: absolute; z-index: 3; top: 160px; left: 104px; width: 205px; transform: rotate(3deg); background: #FFFFFF; border-radius: 10px; padding: 9px 9px 12px; box-shadow: 0 24px 54px rgba(51,41,31,0.22); display: flex; flex-direction: column; gap: 8px;">
+        <img src="images/sirenita.png" alt="Smash cake sirenita" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; border-radius: 5px;">
+        <span style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 15px; color: #55452F; text-align: center;">smash cake · sirenita</span>
+      </div>
+      <!-- carta: atemporal -->
+      <div style="position: absolute; z-index: 2; top: 36px; left: 0; width: 165px; transform: rotate(-6deg); background: #FFFFFF; border-radius: 10px; padding: 8px 8px 10px; box-shadow: 0 18px 40px rgba(51,41,31,0.18); display: flex; flex-direction: column; gap: 7px;">
+        <img src="images/cumple-dos.png" alt="Sesión atemporal" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; border-radius: 5px;">
+        <span style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 13.5px; color: #55452F; text-align: center;">atemporal · 2 añitos</span>
+      </div>
+      <!-- mini carta: boda -->
+      <div style="position: absolute; z-index: 1; top: 4px; right: 46px; width: 118px; transform: rotate(8deg); background: #FFFFFF; border-radius: 9px; padding: 6px 6px 8px; box-shadow: 0 12px 28px rgba(51,41,31,0.15); display: flex; flex-direction: column; gap: 5px;">
+        <img src="images/boda-piano.png" alt="Boda" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; border-radius: 4px;">
+        <span style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 12px; color: #55452F; text-align: center;">boda</span>
+      </div>
+      <!-- mini carta: navidad -->
+      <div style="position: absolute; z-index: 1; bottom: 34px; left: 0; width: 118px; transform: rotate(-8deg); background: #FFFFFF; border-radius: 9px; padding: 6px 6px 8px; box-shadow: 0 12px 28px rgba(51,41,31,0.15); display: flex; flex-direction: column; gap: 5px;">
+        <img src="images/navidad-kids.png" alt="Navideña" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: 50% 25%; display: block; border-radius: 4px;">
+        <span style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 12px; color: #55452F; text-align: center;">navideña</span>
+      </div>
+      <!-- mini carta en blanco 1 (arrastra una foto) -->
+      <div style="position: absolute; z-index: 4; top: 186px; right: 0; width: 118px; transform: rotate(6deg); background: #FFFFFF; border-radius: 9px; padding: 6px 6px 8px; box-shadow: 0 12px 28px rgba(51,41,31,0.15); display: flex; flex-direction: column; gap: 5px;">
+        <div style="width: 106px; height: 140px; border-radius: 4px; overflow: hidden;">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hero-carta-1" shape="rect" placeholder="tu mejor foto" hint-size="106px,140px" style="width: 106px; height: 140px;"></x-import>
+        </div>
+        <span style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 12px; color: #B39A78; text-align: center;">próximamente</span>
+      </div>
+      <!-- mini carta en blanco 2 -->
+      <div style="position: absolute; z-index: 2; bottom: 0; right: 148px; width: 118px; transform: rotate(-4deg); background: #FFFFFF; border-radius: 9px; padding: 6px 6px 8px; box-shadow: 0 12px 28px rgba(51,41,31,0.15); display: flex; flex-direction: column; gap: 5px;">
+        <div style="width: 106px; height: 140px; border-radius: 4px; overflow: hidden;">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hero-carta-2" shape="rect" placeholder="tu mejor foto" hint-size="106px,140px" style="width: 106px; height: 140px;"></x-import>
+        </div>
+        <span style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 12px; color: #B39A78; text-align: center;">próximamente</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parte 2: índice de mundos por color -->
+  <section style="max-width: 1180px; margin: 0 auto; padding: 0 32px 90px; display: flex; flex-direction: column; gap: 22px;">
+    <div style="display: flex; align-items: center; gap: 16px;">
+      <span style="height: 1px; flex: 1; background: #E5D5BE;"></span>
+      <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #8A7660;">Tres mundos, un mismo ojo</span>
+      <span style="height: 1px; flex: 1; background: #E5D5BE;"></span>
+    </div>
+    <div style="display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 18px;">
+      <a href="#paquetes" style="background: #F8E3E1; border-radius: 26px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 34px; color: #7A4038;" style-hover="transform: translateY(-4px); color: #7A4038;">
+        <span style="font-size: 12.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #C0766B;">01 · Pastel</span>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span style="font-family: 'Instrument Serif', serif; font-size: 30px; color: #5C2F29;">Smash Cakes</span>
+          <span style="font-size: 14px; font-weight: 700;">Su primer añito, con betún hasta las cejas →</span>
+        </div>
+      </a>
+      <a href="#trabajos" style="background: #F1E1B8; border-radius: 26px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 34px; color: #6E5313;" style-hover="transform: translateY(-4px); color: #6E5313;">
+        <span style="font-size: 12.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #A9821F;">02 · Dorado</span>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span style="font-family: 'Instrument Serif', serif; font-size: 30px; color: #4E3A0C;">Sesiones personales</span>
+          <span style="font-size: 14px; font-weight: 700;">Bodas, XV años, newborns →</span>
+        </div>
+      </a>
+      <a href="#marcas" style="background: #6E2118; border-radius: 26px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 34px; color: #F4CBBB;" style-hover="transform: translateY(-4px); color: #F4CBBB;">
+        <span style="font-size: 12.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #D98973;">03 · Rojo</span>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span style="font-family: 'Instrument Serif', serif; font-size: 30px; color: #FBEAE2;">Producto y marcas</span>
+          <span style="font-size: 14px; font-weight: 700;">Food, comercial, video →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Paquetes -->
+  <section id="paquetes" style="background: #F8E7E6; border-radius: 48px 48px 0 0; padding: 84px 32px 100px;">
+    <div style="max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px;">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center;">
+        <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #B85C43;">Paquetes Smash Cake</span>
+        <h2 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 48px; margin: 0; line-height: 1.1;">Tres formas de celebrar su primer pastel</h2>
+        <p style="margin: 0; color: #6B5A48; font-size: 17px; max-width: 52ch; text-wrap: pretty;">Todos incluyen set temático decorado, guía durante la sesión y galería digital. Tú eliges qué tan grande es la fiesta.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch;">
+        <sc-for list="{{ paquetes }}" as="p" hint-placeholder-count="3">
+          <div style="position: relative; background: {{ p.bg }}; border: {{ p.border }}; border-radius: 28px; padding: 34px 30px; display: flex; flex-direction: column; gap: 20px; box-shadow: {{ p.shadow }}; transform: {{ p.lift }};">
+            <sc-if value="{{ p.destacado }}" hint-placeholder-val="{{ false }}">
+              <span style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: #D26A4F; color: #FFF6EE; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 16px; border-radius: 999px; white-space: nowrap;">El más pedido</span>
+            </sc-if>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <span style="font-size: 26px;">{{ p.emoji }}</span>
+              <h3 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 30px; margin: 0;">{{ p.nombre }}</h3>
+              <p style="margin: 0; font-size: 14.5px; color: #8A7660;">{{ p.tagline }}</p>
+            </div>
+            <div style="display: flex; align-items: baseline; gap: 6px;">
+              <span style="font-family: 'Instrument Serif', serif; font-size: 42px;">{{ p.precio }}</span>
+              <span style="font-size: 14px; color: #8A7660; font-weight: 700;">MXN</span>
+            </div>
+            <div style="height: 1px; background: #E8D4C0;"></div>
+            <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; flex: 1;">
+              <sc-for list="{{ p.incluye }}" as="item" hint-placeholder-count="4">
+                <li style="display: flex; gap: 10px; font-size: 15px; line-height: 1.45; color: #55452F;">
+                  <span style="flex: none; width: 18px; height: 18px; border-radius: 50%; background: #DBE8D4; color: #2F6B4A; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; margin-top: 2px;">✓</span>
+                  <span>{{ item }}</span>
+                </li>
+              </sc-for>
+            </ul>
+            <a href="{{ waLink }}" style="display: block; text-align: center; background: {{ p.ctaBg }}; color: {{ p.ctaColor }}; padding: 14px 20px; border-radius: 999px; font-size: 15px; font-weight: 800;" style-hover="opacity: 0.88;">{{ p.cta }}</a>
+          </div>
+        </sc-for>
+      </div>
+      <p style="text-align: center; margin: 0; font-size: 14px; color: #8A7660;">¿Sesión para hermanitos o temática especial? <a href="{{ waLink }}" style="font-weight: 800;">Escríbeme y lo armamos a tu medida.</a></p>
+    </div>
+  </section>
+
+  <!-- Galería Smash Cake por temáticas -->
+  <section id="galeria" style="background: #FAF4EC; padding: 90px 0 80px;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 32px; display: flex; flex-direction: column; gap: 10px;">
+      <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #B85C43;">Sesiones pasadas</span>
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+        <h2 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 46px; margin: 0; line-height: 1.1;">Elige la temática de su fiesta</h2>
+        <div style="display: flex; gap: 10px;">
+          <sc-for list="{{ temas }}" as="t" hint-placeholder-count="3">
+            <button onClick="{{ t.pick }}" style="border: 1.5px solid {{ t.borde }}; background: {{ t.fondo }}; color: {{ t.color }}; font-family: 'Karla', sans-serif; font-size: 14px; font-weight: 800; padding: 10px 20px; border-radius: 999px; cursor: pointer; white-space: nowrap;">{{ t.nombre }}</button>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 34px 32px 20px; max-width: 1180px; margin: 0 auto; box-sizing: border-box;">
+      <sc-for list="{{ fotosTema }}" as="f" hint-placeholder-count="4">
+        <div style="flex: none; width: 300px; scroll-snap-align: start; display: flex; flex-direction: column; gap: 12px;">
+          <div style="border-radius: 22px; overflow: hidden; aspect-ratio: 3 / 4; background: repeating-linear-gradient(45deg, #F0E2CE 0 14px, #EAD8BF 14px 28px); position: relative;">
+            <sc-if value="{{ f.src }}" hint-placeholder-val="{{ false }}">
+              <img src="{{ f.src }}" alt="{{ f.titulo }}" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </sc-if>
+            <sc-if value="{{ f.placeholder }}" hint-placeholder-val="{{ true }}">
+              <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: monospace; font-size: 12px; color: #9A7A52; text-align: center; padding: 20px;">{{ f.nota }}</span>
+            </sc-if>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <span style="font-size: 15px; font-weight: 800;">{{ f.titulo }}</span>
+            <span style="font-size: 13px; color: #8A7660;">{{ f.detalle }}</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <p style="max-width: 1180px; margin: 0 auto; padding: 0 32px; font-size: 13.5px; color: #B39A78; font-weight: 700;">Desliza para ver más →</p>
+  </section>
+
+  <!-- Quiebre visual: marquee -->
+  <div style="background: #23402F; padding: 26px 0; overflow: hidden; transform: rotate(-1.2deg) scale(1.02); margin: 30px 0;">
+    <div style="display: flex; width: max-content; animation: marquee 26s linear infinite; gap: 0;">
+      <span style="font-family: 'Instrument Serif', serif; font-size: 30px; color: #EFE7D8; white-space: nowrap; padding-right: 20px;">Hay más que pastel ✦ Bodas ✦ XV años ✦ Newborns ✦ Producto ✦ Comerciales ✦ Drone ✦&nbsp;</span>
+      <span style="font-family: 'Instrument Serif', serif; font-size: 30px; color: #EFE7D8; white-space: nowrap; padding-right: 20px;">Hay más que pastel ✦ Bodas ✦ XV años ✦ Newborns ✦ Producto ✦ Comerciales ✦ Drone ✦&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- Otros trabajos: collage editorial (dorado) -->
+  <section id="trabajos" style="background: #F3E7C9; padding: 84px 32px;">
+    <div style="max-width: 1180px; margin: 0 auto;">
+    <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px;">
+      <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #A9821F;">Sesiones personales</span>
+      <h2 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 46px; margin: 0; line-height: 1.1; max-width: 20ch;">Historias grandes, chicas y las que apenas comienzan</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 200px; gap: 18px;">
+      <div style="grid-column: span 2; grid-row: span 2; border-radius: 24px; overflow: hidden; position: relative;">
+        <img src="images/boda-piano.png" alt="Boda" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 18px; bottom: 18px; background: rgba(250,244,236,0.94); border-radius: 999px; padding: 9px 18px; font-size: 14px; font-weight: 800;">Bodas</div>
+      </div>
+      <div style="border-radius: 24px; overflow: hidden; position: relative;">
+        <img src="images/compromiso.png" alt="Compromiso" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 14px; bottom: 14px; background: rgba(250,244,236,0.94); border-radius: 999px; padding: 7px 14px; font-size: 13px; font-weight: 800;">Compromiso</div>
+      </div>
+      <div style="border-radius: 24px; overflow: hidden; position: relative; background: repeating-linear-gradient(45deg, #EFE0CB 0 14px, #E9D6BB 14px 28px);">
+        <span style="position: absolute; inset: 0 0 52px 0; display: flex; align-items: center; justify-content: center; font-family: monospace; font-size: 12px; color: #9A7A52; text-align: center; padding: 16px;">foto XV años</span>
+        <div style="position: absolute; left: 14px; bottom: 14px; background: rgba(250,244,236,0.94); border-radius: 999px; padding: 7px 14px; font-size: 13px; font-weight: 800;">XV años</div>
+      </div>
+      <div style="border-radius: 24px; overflow: hidden; position: relative;">
+        <img src="images/revelacion.png" alt="Revelación" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 14px; bottom: 14px; background: rgba(250,244,236,0.94); border-radius: 999px; padding: 7px 14px; font-size: 13px; font-weight: 800;">Pre-fiesta y revelación</div>
+      </div>
+      <div style="border-radius: 24px; background: #E8B84B; padding: 22px; display: flex; flex-direction: column; justify-content: space-between;">
+        <span style="font-size: 26px;">🚁</span>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span style="font-family: 'Instrument Serif', serif; font-size: 24px; line-height: 1.1;">Tomas aéreas con drone</span>
+          <span style="font-size: 13.5px; color: #6E5313; font-weight: 700;">Para bodas, eventos y locaciones</span>
+        </div>
+      </div>
+      <div style="border-radius: 24px; overflow: hidden; position: relative;">
+        <img src="images/cumple-dos.png" alt="Sesión atemporal" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; left: 14px; bottom: 14px; background: rgba(250,244,236,0.94); border-radius: 999px; padding: 7px 14px; font-size: 13px; font-weight: 800;">Atemporales</div>
+      </div>
+      <div style="border-radius: 24px; overflow: hidden; position: relative;">
+        <img src="images/navidad-kids.png" alt="Sesión navideña" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block;">
+        <div style="position: absolute; left: 14px; bottom: 14px; background: rgba(250,244,236,0.94); border-radius: 999px; padding: 7px 14px; font-size: 13px; font-weight: 800;">Temporada</div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- Newborns -->
+  <section style="background: #EDDFB2; padding: 90px 32px;">
+    <div style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: center;">
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #A9821F;">Newborns y nacimientos</span>
+        <h2 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 46px; margin: 0; line-height: 1.1;">Sus primeros días solo pasan una vez</h2>
+        <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #5C4A1A; max-width: 44ch; text-wrap: pretty;">Cobertura del nacimiento en hospital y sesiones newborn en estudio, con todo el cuidado que un recién nacido necesita. Props, arrullos y paciencia infinita incluidos.</p>
+        <a href="{{ waLink }}" style="align-self: flex-start; background: #2F6B4A; color: #F2F8EF; padding: 13px 26px; border-radius: 999px; font-size: 15px; font-weight: 800;" style-hover="background: #245239;">Preguntar por fechas</a>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
+        <img src="images/newborn-oso.png" alt="Newborn en estudio" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 22px; display: block; margin-top: 34px;">
+        <img src="images/newborn-hospital.png" alt="Nacimiento en hospital" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 22px; display: block;">
+      </div>
+    </div>
+  </section>
+
+  <!-- Producto y comercial (rojo) -->
+  <section id="marcas" style="background: #5E1D14; color: #F8EDE4; padding: 96px 32px;">
+    <div style="max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 44px;">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #F0A183;">Para marcas</span>
+          <h2 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 46px; margin: 0; line-height: 1.1; max-width: 18ch;">Producto y contenido comercial que sí vende</h2>
+        </div>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #E3B5A3; max-width: 40ch; text-wrap: pretty;">Food styling, producto en estudio y video para negocios locales: restaurantes, clínicas, gimnasios y más.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;">
+        <div style="border-radius: 22px; overflow: hidden; position: relative;">
+          <img src="images/producto-waffles.png" alt="Food styling" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block;">
+          <span style="position: absolute; left: 14px; top: 14px; background: rgba(62,15,8,0.85); color: #F8EDE4; border-radius: 999px; padding: 7px 14px; font-size: 12.5px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase;">Food</span>
+        </div>
+        <div style="border-radius: 22px; overflow: hidden; position: relative; margin-top: 30px;">
+          <img src="images/producto-yogurt.png" alt="Producto" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block;">
+          <span style="position: absolute; left: 14px; top: 14px; background: rgba(62,15,8,0.85); color: #F8EDE4; border-radius: 999px; padding: 7px 14px; font-size: 12.5px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase;">Producto</span>
+        </div>
+        <div style="border-radius: 22px; overflow: hidden; position: relative;">
+          <img src="images/comercial-dental.png" alt="Comercial" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block;">
+          <span style="position: absolute; left: 14px; top: 14px; background: rgba(62,15,8,0.85); color: #F8EDE4; border-radius: 999px; padding: 7px 14px; font-size: 12.5px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase;">Comercial</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Ubicaciones + contacto -->
+  <section style="background: #FAF4EC; padding: 90px 32px 120px;">
+    <div style="max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 44px;">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center;">
+        <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #B85C43;">¿Dónde trabajamos?</span>
+        <h2 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 46px; margin: 0;">Tres ciudades, una misma historia</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+        <div style="background: #FFFFFF; border: 1px solid #EBDCC8; border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-family: 'Instrument Serif', serif; font-size: 28px;">Guadalajara</span>
+          <span style="font-size: 14.5px; color: #8A7660; line-height: 1.5;">Estudio propio · Morelos 1876, Col. Americana</span>
+          <span style="align-self: flex-start; margin-top: 8px; background: #DBE8D4; color: #2F6B4A; font-size: 12px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px;">Sede principal</span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #EBDCC8; border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-family: 'Instrument Serif', serif; font-size: 28px;">Ciudad de México</span>
+          <span style="font-size: 14.5px; color: #8A7660; line-height: 1.5;">Sesiones a domicilio, locación y eventos</span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #EBDCC8; border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-family: 'Instrument Serif', serif; font-size: 28px;">Cuernavaca</span>
+          <span style="font-size: 14.5px; color: #8A7660; line-height: 1.5;">Bodas, eventos y sesiones en exteriores</span>
+        </div>
+      </div>
+      <div style="background: #2F6B4A; border-radius: 32px; padding: 56px 40px; display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center;">
+        <h2 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 44px; margin: 0; color: #F2F8EF; max-width: 22ch; line-height: 1.15;">¿Lista la fecha? Cuéntanos qué celebramos.</h2>
+        <p style="margin: 0; color: #BCD8C4; font-size: 16px;">Respuesta el mismo día · Apartas con el 30%</p>
+        <a href="{{ waLink }}" style="display: inline-flex; align-items: center; gap: 10px; background: #F2F8EF; color: #23402F; padding: 16px 32px; border-radius: 999px; font-size: 17px; font-weight: 800;" style-hover="background: #FFFFFF;">Escríbeme por WhatsApp</a>
+        <div style="display: flex; align-items: center; gap: 10px; margin-top: 6px;">
+          <img src="images/emily-camara.png" alt="Emily Ramos" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover; object-position: 70% 20%; border: 2px solid #F2F8EF;">
+          <span style="font-size: 13.5px; color: #BCD8C4; font-weight: 700;">Te atiende Emily Ramos, fotógrafa principal</span>
+        </div>
+      </div>
+      <footer style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 13.5px; color: #8A7660; padding-top: 8px;">
+        <span style="font-family: 'Instrument Serif', serif; font-size: 20px; color: #33291F;">Reloj181</span>
+        <span>Instagram · Facebook @reloj181</span>
+        <span>GDL · CDMX · Cuernavaca</span>
+      </footer>
+    </div>
+  </section>
+
+  <!-- Floating WhatsApp CTA -->
+  <sc-if value="{{ showFloatingCta }}" hint-placeholder-val="{{ true }}">
+    <a href="{{ waLink }}" style="position: fixed; z-index: 50; right: 24px; bottom: 24px; display: flex; align-items: center; gap: 10px; background: #2F6B4A; color: #F2F8EF; padding: 14px 22px; border-radius: 999px; font-family: 'Karla', sans-serif; font-size: 15px; font-weight: 800; box-shadow: 0 14px 34px rgba(35,64,47,0.4);" style-hover="background: #245239;">
+      <span style="width: 9px; height: 9px; border-radius: 50%; background: #A8D8B4; display: inline-block;"></span>
+      Agendar por WhatsApp
+    </a>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: {&quot;width&quot;: 1280},
+  &quot;paqueteDestacado&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;Chispitas&quot;, &quot;Betún y Confeti&quot;, &quot;Gran Fiesta&quot;, &quot;ninguno&quot;], &quot;default&quot;: &quot;Betún y Confeti&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Paquetes&quot;},
+  &quot;whatsapp&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;5215500000000&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Contacto&quot;},
+  &quot;showFloatingCta&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Contacto&quot;}
+}">
+class Component extends DCLogic {
+  state = { tema: "Sirenitas y marineritos" };
+  renderVals() {
+    const destacado = this.props.paqueteDestacado ?? "Betún y Confeti";
+    const wa = (this.props.whatsapp ?? "5215500000000").replace(/\D/g, "");
+    const base = { bg: "#FFFFFF", border: "1px solid #EBD7C2", shadow: "0 10px 26px rgba(51,41,31,0.06)", lift: "none", ctaBg: "#F3DFC9", ctaColor: "#8C5A2B", cta: "Quiero este paquete" };
+    const feat = { bg: "#FFFDF9", border: "2px solid #D26A4F", shadow: "0 22px 50px rgba(210,106,79,0.24)", lift: "translateY(-14px)", ctaBg: "#D26A4F", ctaColor: "#FFF6EE", cta: "Reservar ahora" };
+    const paquetes = [
+      { nombre: "Chispitas", emoji: "🧁", tagline: "Lo esencial, igual de tierno", precio: "$2,400",
+        incluye: ["Sesión de 45 min en estudio", "Set temático a elegir", "Pastel smash incluido", "15 fotos editadas en galería digital"] },
+      { nombre: "Betún y Confeti", emoji: "🎂", tagline: "Fotos + video del gran momento", precio: "$3,800",
+        incluye: ["Sesión de 1.5 hrs en estudio", "Set temático personalizado", "Pastel + outfit de recuerdo", "30 fotos editadas", "Video highlight de 1 min para redes"] },
+      { nombre: "Gran Fiesta", emoji: "🎉", tagline: "La experiencia completa", precio: "$5,900",
+        incluye: ["Sesión de 2.5 hrs, estudio o exterior", "Dos sets temáticos + splash de burbujas", "Pastel, outfits y props premium", "50 fotos editadas + álbum impreso", "Mini película de 3 min", "Sesión familiar de regalo"] },
+    ].map(p => ({ ...p, destacado: p.nombre === destacado, ...(p.nombre === destacado ? feat : base) }));
+
+    const galeria = {
+      "Sirenitas y marineritos": [
+        { src: "images/sirenita.png", titulo: "Sirenita bajo el mar", detalle: "Set con castillo y conchas · 6 meses" },
+        { placeholder: true, nota: "foto marinerito — set náutico", titulo: "Marinerito de primera", detalle: "Set náutico azul y blanco" },
+        { placeholder: true, nota: "foto smash cake marino", titulo: "El gran pastel-ancla", detalle: "Smash cake tema marino" },
+        { placeholder: true, nota: "foto splash de burbujas", titulo: "Splash final", detalle: "Tina de burbujas para cerrar" },
+      ],
+      "Princesas": [
+        { placeholder: true, nota: "foto set princesa — castillo rosa", titulo: "Su primer castillo", detalle: "Set de princesa con coronita" },
+        { placeholder: true, nota: "foto pastel de princesa", titulo: "Pastel real", detalle: "Smash cake rosa y dorado" },
+        { placeholder: true, nota: "foto vestido y tutú", titulo: "Tutú y tiara", detalle: "Outfits incluidos en el paquete" },
+        { placeholder: true, nota: "foto familiar en set", titulo: "La corte completa", detalle: "Foto familiar de regalo" },
+      ],
+      "Piratas": [
+        { placeholder: true, nota: "foto set pirata — barco y mapa", titulo: "Capitán del pastel", detalle: "Set pirata con barco y cofre" },
+        { placeholder: true, nota: "foto pastel pirata", titulo: "El botín más dulce", detalle: "Smash cake tema pirata" },
+        { placeholder: true, nota: "foto con sombrero pirata", titulo: "Tripulación de uno", detalle: "Props: sombrero, catalejo y loro" },
+        { placeholder: true, nota: "foto splash pirata", titulo: "Al agua", detalle: "Splash final de la sesión" },
+      ],
+    };
+    const temas = Object.keys(galeria).map(nombre => {
+      const activo = nombre === this.state.tema;
+      return {
+        nombre, pick: () => this.setState({ tema: nombre }),
+        fondo: activo ? "#33291F" : "transparent", color: activo ? "#FAF4EC" : "#6B5A48", borde: activo ? "#33291F" : "#D9C6AC",
+      };
+    });
+    return {
+      paquetes, temas,
+      fotosTema: galeria[this.state.tema],
+      waLink: "https://wa.me/" + wa + "?text=" + encodeURIComponent("¡Hola Reloj181! Quiero agendar una sesión 📸"),
+      showFloatingCta: this.props.showFloatingCta ?? true,
+    };
+  }
+}
+</script>
+</body>
+</html>

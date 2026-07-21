@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="description" content="Reloj 181 — Fotografía y video de Emily Razo. Smash cakes, bodas, nacimientos y contenido de marca en Guadalajara, CDMX y Cuernavaca.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karla:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #F7F1E8; }
+  * { box-sizing: border-box; }
+  a { color: #8A2318; text-decoration: none; }
+  a:hover { color: #5A1810; }
+  button { font-family: 'Karla', sans-serif; }
+  input, textarea, select { font-family: 'Karla', sans-serif; }
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .rj-scroll::-webkit-scrollbar { height: 0; }
+</style>
+</helmet>
+
+<div style="font-family: 'Karla', sans-serif; color: #26211B; background: #F7F1E8; min-height: 100vh; overflow-x: hidden;">
+
+  <!-- ============ HEADER (persistente) ============ -->
+  <header style="position: sticky; top: 0; z-index: 40; background: rgba(247,241,232,0.94); backdrop-filter: blur(10px); border-bottom: 1px solid #E4D9C8;">
+    <div style="max-width: 1220px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+      <button onClick="{{ goHome }}" style="display: flex; align-items: center; gap: 12px; background: none; border: none; cursor: pointer; padding: 0; color: #26211B;">
+        <svg width="34" height="34" viewBox="0 0 40 40" fill="none" style="flex: none;">
+          <circle cx="20" cy="20" r="18.2" stroke="#26211B" stroke-width="1.4"></circle>
+          <circle cx="20" cy="20" r="11" stroke="#26211B" stroke-width="1.4"></circle>
+          <circle cx="20" cy="20" r="4" stroke="#C0392B" stroke-width="1.6"></circle>
+          <path d="M20 1V39 M1 20H39" stroke="#26211B" stroke-width="0.5" stroke-dasharray="2 3"></path>
+        </svg>
+        <span style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1;">
+          <span style="font-weight: 800; font-size: 18px; letter-spacing: 0.34em; text-transform: uppercase;">RELOJ&nbsp;181</span>
+          <span style="font-family: 'Space Mono', monospace; font-size: 9.5px; letter-spacing: 0.18em; color: #8B7A69; margin-top: 3px;">R-181 · FOTO / VIDEO</span>
+        </span>
+      </button>
+      <nav style="display: flex; align-items: center; gap: 4px; flex-wrap: wrap;">
+        <button onClick="{{ goHome }}" style="background: none; border: none; cursor: pointer; font-size: 13.5px; font-weight: 700; color: #4A4034; padding: 8px 12px; border-radius: 999px;" style-hover="background: #EEE3D3;">Inicio</button>
+        <button onClick="{{ goSmash }}" style="background: #FBEDC6; border: 1px solid #E9CE86; cursor: pointer; font-size: 13.5px; font-weight: 800; color: #4E3806; padding: 8px 15px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px;" style-hover="background: #F7E1A6;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #E9A81C;"></span>Smash Cakes</button>
+        <button onClick="{{ goBodas }}" style="background: #F5EFE4; border: 1px solid #DFD1B6; cursor: pointer; font-size: 13.5px; font-weight: 800; color: #463C2C; padding: 8px 15px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px;" style-hover="background: #ECE1CC;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #B99C6B;"></span>Eventos</button>
+        <button onClick="{{ goNegocios }}" style="background: none; border: none; cursor: pointer; font-size: 13.5px; font-weight: 700; color: #4A4034; padding: 8px 12px; border-radius: 999px;" style-hover="background: #EEE3D3;">Para negocios</button>
+        <button onClick="{{ goCine }}" style="background: #0C0C0D; border: none; cursor: pointer; font-size: 13.5px; font-weight: 800; color: #F1ECE2; padding: 8px 15px; border-radius: 999px; display: inline-flex; align-items: center; gap: 7px;" style-hover="background: #262626; color: #F1ECE2;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #C0392B;"></span>Cine</button>
+        <button onClick="{{ toggleMenu }}" style="background: #26211B; border: none; cursor: pointer; font-size: 13.5px; font-weight: 800; color: #F7F1E8; padding: 8px 15px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px;" style-hover="background: #3E362C;">Categorías <span style="font-size: 10px;">▾</span></button>
+      </nav>
+      <a href="{{ waGeneral }}" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #2E7D4F; color: #F2F8EF; padding: 10px 18px; border-radius: 999px; font-size: 13.5px; font-weight: 800; box-shadow: 0 8px 20px rgba(46,125,79,0.28);" style-hover="background: #256540; color: #F2F8EF;">
+        <span style="width: 7px; height: 7px; border-radius: 50%; background: #A8D8B4;"></span>WhatsApp
+      </a>
+    </div>
+    <div style="border-top: 1px dashed #E0D3BF; background: #F1E9DB;">
+      <div style="max-width: 1220px; margin: 0 auto; padding: 6px 24px; font-family: 'Space Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; color: #9A8776; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+        <span style="color: #B7A794;">reloj181.mx</span><span style="color: #26211B; font-weight: 700;">{{ path }}</span>
+        <span style="margin-left: auto; color: #B7A794;">GDL — CDMX — CUERNAVACA</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ MEGA-MENÚ ============ -->
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeMenu }}" style="position: fixed; inset: 0; z-index: 44; background: rgba(38,33,27,0.42);"></div>
+    <div style="position: fixed; z-index: 45; top: 74px; left: 50%; transform: translateX(-50%); width: min(1120px, 94vw); max-height: 80vh; overflow-y: auto; background: #FBF6EE; border: 1px solid #E4D9C8; border-radius: 22px; box-shadow: 0 34px 80px rgba(38,33,27,0.34); padding: 26px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #9A8776;">Índice de servicios · elige un mundo</span>
+        <button onClick="{{ closeMenu }}" style="background: none; border: 1px solid #D9CBB6; cursor: pointer; width: 30px; height: 30px; border-radius: 50%; color: #6B5D4C; font-size: 15px;" style-hover="background: #EEE3D3;">✕</button>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px;">
+        <sc-for list="{{ catList }}" as="c" hint-placeholder-count="8">
+          <button onClick="{{ c.go }}" style="text-align: left; background: {{ c.tint }}; border: 1px solid rgba(38,33,27,0.06); cursor: pointer; border-radius: 16px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px;" style-hover="transform: translateY(-3px);">
+            <span style="display: flex; align-items: center; gap: 9px;">
+              <span style="width: 12px; height: 12px; border-radius: 50%; background: {{ c.accent }};"></span>
+              <span style="font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: {{ c.label }};">{{ c.estado }}</span>
+            </span>
+            <span style="font-weight: 800; font-size: 18px; color: {{ c.deep }};">{{ c.nombre }}</span>
+            <span style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 16px; color: {{ c.muted }};">{{ c.cursive }}</span>
+          </button>
+        </sc-for>
+        <button onClick="{{ goNegocios }}" style="text-align: left; background: #26211B; border: none; cursor: pointer; border-radius: 16px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px;" style-hover="transform: translateY(-3px);">
+          <span style="font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #C9A24B;">B2B · Marcas</span>
+          <span style="font-weight: 800; font-size: 18px; color: #F7F1E8;">Para negocios</span>
+          <span style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 16px; color: #B9AA97;">hoteles, restaurantes y marcas</span>
+        </button>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ============ HOME ============ -->
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+  <div style="background: #EBE0C9;">
+    <!-- Hero -->
+    <section style="max-width: 1220px; margin: 0 auto; padding: 58px 24px 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 50px; align-items: center;">
+      <div style="display: flex; flex-direction: column; gap: 22px;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #9A8776;">Dirección 00 · Fotografía &amp; Video</span>
+        <h1 style="font-family: 'Karla', sans-serif; font-weight: 800; font-size: clamp(42px, 6vw, 68px); line-height: 1.0; margin: 0; letter-spacing: -0.03em; text-transform: uppercase;">Déjanos contar<br><em style="font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; text-transform: none; font-size: clamp(48px, 7vw, 82px); color: #C0392B; letter-spacing: 0;">tu historia</em><span style="color: #E9A81C;">.</span></h1>
+        <p style="font-size: 18px; line-height: 1.62; color: #6B5D4C; margin: 0; max-width: 46ch; text-wrap: pretty;">Desde el dulce caos de un smash cake hasta bodas, nacimientos y contenido para marcas. Un mismo ojo, ocho formas de contar. Con base en Guadalajara <span style="color: #9A8776;">— también CDMX y Cuernavaca.</span></p>
+        <div style="display: flex; gap: 14px; align-items: center; flex-wrap: wrap;">
+          <a href="{{ waGeneral }}" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; background: #2E7D4F; color: #F2F8EF; padding: 15px 26px; border-radius: 999px; font-size: 16px; font-weight: 800; box-shadow: 0 12px 26px rgba(46,125,79,0.3);" style-hover="background: #256540; color: #F2F8EF;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #A8D8B4;"></span>Agendar por WhatsApp</a>
+          <a href="#destacados" style="display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid #D2C3AC; color: #4A4034; padding: 14px 24px; border-radius: 999px; font-size: 15px; font-weight: 800;" style-hover="background: #EEE3D3; color: #4A4034;">Ver trabajos →</a>
+        </div>
+        <div style="display: flex; align-items: center; gap: 13px; margin-top: 8px; padding-top: 18px; border-top: 1px dashed #E0D3BF;">
+          <img src="images/emily-camara.png" alt="Emily Razo" style="width: 58px; height: 58px; border-radius: 50%; object-fit: cover; object-position: 70% 20%; border: 2px solid #FFFFFF; box-shadow: 0 6px 16px rgba(38,33,27,0.2);">
+          <div style="display: flex; flex-direction: column; line-height: 1.3;">
+            <span style="font-weight: 800; font-size: 16px;">Emily Razo</span>
+            <span style="font-size: 13px; color: #877567;">Fotógrafa y directora · Reloj 181</span>
+          </div>
+        </div>
+      </div>
+      <!-- collage polaroid + blueprint -->
+      <div style="position: relative; min-height: 520px;">
+        <div style="position: absolute; top: 0; right: 0; width: 66%; background: #FFFFFF; border-radius: 12px; padding: 10px 10px 14px; box-shadow: 0 26px 56px rgba(38,33,27,0.2); transform: rotate(2.4deg); z-index: 1;">
+          <img src="images/boda-porton.jpg" alt="Boda en Guadalajara" style="width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 6px; display: block;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; font-family: 'Space Mono', monospace; font-size: 10px; color: #9A8776;"><span>FIG.01 · BODAS</span><span>GDL</span></div>
+        </div>
+        <div style="position: absolute; bottom: 0; left: 0; width: 45%; background: #FFFFFF; border-radius: 12px; padding: 9px 9px 12px; box-shadow: 0 20px 44px rgba(38,33,27,0.22); transform: rotate(-5deg); z-index: 3;">
+          <img src="images/sirenita.png" alt="Smash cake" style="width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 6px; display: block;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 7px; font-family: 'Space Mono', monospace; font-size: 9.5px; color: #9A8776;"><span>FIG.02 · SMASH</span><span style="color: #E9A81C;">●</span></div>
+        </div>
+        <div style="position: absolute; top: 12px; left: 0; width: 40%; background: #FFFFFF; border-radius: 11px; padding: 8px 8px 11px; box-shadow: 0 16px 36px rgba(38,33,27,0.2); transform: rotate(-3.5deg); z-index: 2;">
+          <img src="images/familiar-flores.jpg" alt="Sesión familiar" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 5px; display: block;">
+          <div style="display: flex; justify-content: space-between; margin-top: 6px; font-family: 'Space Mono', monospace; font-size: 8.5px; color: #9A8776;"><span>FIG.03 · FAMILIA</span><span style="color: #4FA98C;">●</span></div>
+        </div>
+        <div style="position: absolute; bottom: 22px; right: 0; width: 32%; background: #FFFFFF; border-radius: 11px; padding: 7px 7px 10px; box-shadow: 0 16px 34px rgba(38,33,27,0.22); transform: rotate(5deg); z-index: 4;">
+          <img src="images/producto-waffles.png" alt="Producto" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 5px; display: block;">
+          <div style="display: flex; justify-content: space-between; margin-top: 6px; font-family: 'Space Mono', monospace; font-size: 8px; color: #9A8776;"><span>FIG.04 · PROD</span><span style="color: #C0392B;">●</span></div>
+        </div>
+        <div style="position: absolute; top: 208px; left: 40%; width: 25%; background: #FFFFFF; border-radius: 10px; padding: 6px 6px 9px; box-shadow: 0 14px 30px rgba(38,33,27,0.24); transform: rotate(7deg); z-index: 5;">
+          <img src="images/maternidad-encaje.jpg" alt="Nacimientos" style="width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 4px; display: block;">
+          <div style="display: flex; justify-content: space-between; margin-top: 5px; font-family: 'Space Mono', monospace; font-size: 7.5px; color: #9A8776;"><span>FIG.05</span><span style="color: #5C82AC;">●</span></div>
+        </div>
+        <div style="position: absolute; top: 46%; left: 1%; width: 66px; height: 66px; z-index: 0; color: #C0392B; opacity: 0.42;">
+          <svg width="76" height="76" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18.2" stroke="currentColor" stroke-width="1"></circle><circle cx="20" cy="20" r="9" stroke="currentColor" stroke-width="1"></circle><path d="M20 1V39 M1 20H39" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 3"></path></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carrusel destacados -->
+    <section id="destacados" style="max-width: 1220px; margin: 0 auto; padding: 40px 0 20px;">
+      <div style="padding: 0 24px; display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 22px;">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #9A8776;">Lámina principal · selección</span>
+          <h2 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(30px, 4vw, 42px); margin: 0; line-height: 1.05;">Trabajos destacados</h2>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <button onClick="{{ scrollPrev }}" style="width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid #D2C3AC; background: #FBF6EE; cursor: pointer; font-size: 18px; color: #4A4034;" style-hover="background: #EEE3D3;">←</button>
+          <button onClick="{{ scrollNext }}" style="width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid #D2C3AC; background: #FBF6EE; cursor: pointer; font-size: 18px; color: #4A4034;" style-hover="background: #EEE3D3;">→</button>
+        </div>
+      </div>
+      <div ref="{{ carouselRef }}" class="rj-scroll" style="display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 6px 24px 24px;">
+        <sc-for list="{{ destacados }}" as="d" hint-placeholder-count="6">
+          <button onClick="{{ d.go }}" style="flex: none; width: 320px; scroll-snap-align: start; text-align: left; background: #FFFFFF; border: 1px solid #EBDFCD; border-radius: 20px; padding: 12px; cursor: pointer; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 12px 30px rgba(38,33,27,0.07);" style-hover="transform: translateY(-5px);">
+            <div style="position: relative; border-radius: 13px; overflow: hidden; aspect-ratio: 4/5;">
+              <img src="{{ d.src }}" alt="{{ d.titulo }}" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              <span style="position: absolute; left: 12px; top: 12px; display: inline-flex; align-items: center; gap: 6px; background: rgba(251,246,238,0.94); border-radius: 999px; padding: 6px 12px; font-size: 11.5px; font-weight: 800; color: {{ d.accentDk }};"><span style="width: 8px; height: 8px; border-radius: 50%; background: {{ d.accent }};"></span>{{ d.catNombre }}</span>
+              <span style="position: absolute; right: 10px; bottom: 8px; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: rgba(255,255,255,0.82); text-shadow: 0 1px 3px rgba(0,0,0,0.5);">RELOJ 181</span>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 0 4px 4px;">
+              <span style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 19px; color: #3E362C;">{{ d.titulo }}</span>
+              <span style="font-size: 13px; font-weight: 800; color: {{ d.accentDk }};">Ver →</span>
+            </div>
+          </button>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- Categorías -->
+    <section style="background: #FBF6EE; border-top: 1px solid #EBDFCD; padding: 70px 24px;">
+      <div style="max-width: 1220px; margin: 0 auto; display: flex; flex-direction: column; gap: 30px;">
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #9A8776; white-space: nowrap;">Ocho mundos, un mismo ojo</span>
+          <span style="height: 1px; flex: 1; background: #E4D9C8;"></span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
+          <sc-for list="{{ catList }}" as="c" hint-placeholder-count="8">
+            <button onClick="{{ c.go }}" style="position: relative; text-align: left; background: {{ c.tint }}; border: 1px solid rgba(38,33,27,0.05); cursor: pointer; border-radius: 22px; padding: 24px; min-height: 190px; display: flex; flex-direction: column; justify-content: space-between; gap: 20px; overflow: hidden;" style-hover="transform: translateY(-5px);">
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <span style="font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: {{ c.label }};">{{ c.estado }}</span>
+                <span style="width: 16px; height: 16px; border-radius: 50%; background: {{ c.accent }}; box-shadow: 0 0 0 4px rgba(255,255,255,0.5);"></span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 4px;">
+                <span style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 17px; color: {{ c.muted }};">{{ c.cursive }}</span>
+                <span style="font-weight: 800; font-size: 24px; color: {{ c.deep }}; line-height: 1.05;">{{ c.nombre }}</span>
+                <span style="font-size: 13.5px; font-weight: 700; color: {{ c.accentDk }}; margin-top: 4px;">Desde {{ c.desde }} →</span>
+              </div>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section style="padding: 74px 24px;">
+      <div style="max-width: 1220px; margin: 0 auto; display: flex; flex-direction: column; gap: 30px;">
+        <div style="display: flex; flex-direction: column; gap: 8px; align-items: center; text-align: center;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #9A8776;">Lo que dicen las familias y las marcas</span>
+          <h2 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(30px, 4vw, 44px); margin: 0;">Confianza que se hereda</h2>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px;">
+          <sc-for list="{{ testimonios }}" as="t" hint-placeholder-count="3">
+            <div style="background: #FFFFFF; border: 1px solid #EBDFCD; border-radius: 22px; padding: 28px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 10px 26px rgba(38,33,27,0.06);">
+              <span style="font-family: 'Space Mono', monospace; font-size: 12px; color: {{ t.accent }};">★★★★★</span>
+              <p style="margin: 0; font-family: 'Instrument Serif', serif; font-size: 20px; line-height: 1.42; color: #3E362C; text-wrap: pretty;">“{{ t.texto }}”</p>
+              <div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding-top: 10px; border-top: 1px dashed #E4D9C8;">
+                <span style="width: 34px; height: 34px; border-radius: 50%; background: {{ t.accent }}; color: #FFF; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px;">{{ t.inicial }}</span>
+                <div style="display: flex; flex-direction: column; line-height: 1.3;">
+                  <span style="font-weight: 800; font-size: 14px;">{{ t.nombre }}</span>
+                  <span style="font-size: 12.5px; color: #877567;">{{ t.detalle }}</span>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clientes / reseñas -->
+    <section style="background: #26211B; color: #EFE7DA; padding: 60px 24px;">
+      <div style="max-width: 1220px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; align-items: center;">
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #C9A24B;">Confían en el lente</span>
+          <h2 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 32px; margin: 0; line-height: 1.15; max-width: 20ch;">Marcas, hoteles y familias que ya nos dejaron entrar.</h2>
+          <a href="{{ waGeneral }}" target="_blank" style="align-self: flex-start; margin-top: 6px; display: inline-flex; align-items: center; gap: 8px; color: #EFE7DA; border-bottom: 1px solid #6B5D4C; padding-bottom: 3px; font-weight: 700; font-size: 14px;" style-hover="color: #C9A24B;">Ver reseñas en Google →</a>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px;">
+          <sc-for list="{{ clientes }}" as="cl" hint-placeholder-count="4">
+            <div style="border: 1px dashed #5A4E3F; border-radius: 14px; aspect-ratio: 2/1; display: flex; align-items: center; justify-content: center; padding: 10px;">
+              <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ cl.id }}" shape="rect" placeholder="logo cliente" hint-size="100%,100%" style="width: 100%; height: 100%;"></x-import>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="padding: 74px 24px;">
+      <div style="max-width: 1000px; margin: 0 auto; background: #2E7D4F; border-radius: 30px; padding: 56px 40px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center;">
+        <h2 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(30px, 4vw, 44px); margin: 0; color: #F2F8EF; max-width: 22ch; line-height: 1.12;">¿Lista la fecha? Cuéntanos qué celebramos.</h2>
+        <p style="margin: 0; color: #BFD9C7; font-size: 15.5px;">Respuesta el mismo día · Apartas con el 30%</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 6px;">
+          <a href="{{ waGeneral }}" target="_blank" style="background: #F2F8EF; color: #23402F; padding: 15px 30px; border-radius: 999px; font-size: 16px; font-weight: 800;" style-hover="background: #FFFFFF; color: #23402F;">Escríbeme por WhatsApp</a>
+          <button onClick="{{ goContacto }}" style="background: rgba(255,255,255,0.14); color: #F2F8EF; border: 1px solid rgba(255,255,255,0.4); padding: 15px 30px; border-radius: 999px; font-size: 16px; font-weight: 800; cursor: pointer;" style-hover="background: rgba(255,255,255,0.24);">Enviar correo formal</button>
+        </div>
+      </div>
+    </section>
+  </div>
+  </sc-if>
+
+  <!-- ============ CATEGORÍA (genérica, temática) ============ -->
+  <sc-if value="{{ isCategory }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <!-- Hero temático -->
+    <section style="background: {{ cat.heroBg }};">
+      <div style="max-width: 1220px; margin: 0 auto; padding: 22px 24px 0;">
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: {{ cat.heroMuted }}; display: flex; gap: 8px; align-items: center;">
+          <button onClick="{{ goHome }}" style="background: none; border: none; cursor: pointer; color: {{ cat.heroMuted }}; font-family: inherit; font-size: inherit; padding: 0;" style-hover="color: {{ cat.heroText }};">Inicio</button>
+          <span>/</span><span style="color: {{ cat.heroText }};">{{ cat.slug }}</span>
+        </div>
+      </div>
+      <div style="max-width: 1220px; margin: 0 auto; padding: 34px 24px 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 46px; align-items: center;">
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 9px; background: {{ cat.accent }}; color: {{ cat.chipText }}; padding: 7px 15px; border-radius: 999px; font-size: 12px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase;">{{ cat.estado }}</span>
+          <h1 style="margin: 0; line-height: 0.98; color: {{ cat.heroText }};"><span style="display: block; font-weight: 800; font-size: clamp(40px, 6vw, 66px); letter-spacing: -0.03em; text-transform: uppercase;">{{ cat.nombre }}</span><span style="display: block; font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: clamp(30px, 4.5vw, 46px); color: {{ cat.accent }}; margin-top: 6px;">{{ cat.cursive }}</span></h1>
+          <p style="margin: 0; font-size: 18px; line-height: 1.6; color: {{ cat.heroMuted }}; max-width: 46ch; text-wrap: pretty;">{{ cat.descripcion }}</p>
+          <div style="display: flex; align-items: center; gap: 9px; font-family: 'Space Mono', monospace; font-size: 12px; color: {{ cat.heroMuted }};"><span style="width: 8px; height: 8px; border-radius: 50%; background: {{ cat.accent }};"></span>{{ cat.ciudad }}</div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px;">
+            <a href="{{ cat.wa }}" target="_blank" style="background: {{ cat.accent }}; color: {{ cat.chipText }}; padding: 14px 26px; border-radius: 999px; font-size: 15px; font-weight: 800;" style-hover="opacity: 0.9; color: {{ cat.chipText }};">Agendar {{ cat.nombre }}</a>
+            <button onClick="{{ goContacto }}" style="background: transparent; border: 1.5px solid {{ cat.accent }}; color: {{ cat.heroText }}; padding: 13px 24px; border-radius: 999px; font-size: 15px; font-weight: 800; cursor: pointer;" style-hover="background: {{ cat.accent }}; color: {{ cat.chipText }};">Pedir cotización</button>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 24px 54px rgba(38,33,27,0.24);">
+            <img src="{{ cat.heroImg }}" alt="{{ cat.nombre }}" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;">
+            <span style="position: absolute; right: 12px; bottom: 10px; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: rgba(255,255,255,0.85); text-shadow: 0 1px 3px rgba(0,0,0,0.6);">RELOJ 181 · {{ cat.slug }}</span>
+          </div>
+          <div style="background: rgba(255,255,255,0.55); border: 1px solid {{ cat.accent }}; border-radius: 16px; padding: 16px 18px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+            <div style="display: flex; flex-direction: column;"><span style="font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: {{ cat.label }};">Desde</span><span style="font-family: 'Instrument Serif', serif; font-size: 30px; color: {{ cat.deep }};">{{ cat.desde }}</span></div>
+            <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 5px; flex: 1; min-width: 160px;">
+              <sc-for list="{{ cat.incluye }}" as="i" hint-placeholder-count="3">
+                <li style="display: flex; gap: 8px; font-size: 13.5px; color: {{ cat.deep }};"><span style="color: {{ cat.accent }}; font-weight: 800;">✓</span>{{ i }}</li>
+              </sc-for>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galería -->
+    <section style="padding: 64px 24px;">
+      <div style="max-width: 1220px; margin: 0 auto;">
+        <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 28px;">
+          <h2 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(28px, 3.5vw, 40px); margin: 0;">Galería de {{ cat.nombre }}</h2>
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #9A8776;">Fotografías © Reloj 181 · marca de agua</span>
+        </div>
+        <div style="columns: 3 260px; column-gap: 16px;">
+          <sc-for list="{{ cat.fotos }}" as="f" hint-placeholder-count="6">
+            <div style="break-inside: avoid; margin-bottom: 16px; position: relative; border-radius: 16px; overflow: hidden; background: repeating-linear-gradient(45deg, #EFE2CD 0 12px, #E9D7BD 12px 24px);">
+              <sc-if value="{{ f.slot }}" hint-placeholder-val="{{ false }}">
+                <div style="aspect-ratio: 3/4;"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ f.id }}" shape="rect" placeholder="{{ f.nota }}" hint-size="100%,100%" style="width: 100%; height: 100%;"></x-import></div>
+              </sc-if>
+              <sc-if value="{{ f.src }}" hint-placeholder-val="{{ true }}">
+                <img src="{{ f.src }}" alt="{{ f.titulo }}" style="width: 100%; display: block;">
+                <span style="position: absolute; left: 10px; bottom: 10px; display: inline-flex; align-items: center; gap: 6px; background: rgba(38,33,27,0.55); backdrop-filter: blur(3px); border-radius: 999px; padding: 5px 11px; font-size: 12px; font-weight: 700; color: #F7F1E8;">{{ f.titulo }}</span>
+                <span style="position: absolute; right: 9px; top: 9px; font-family: 'Space Mono', monospace; font-size: 8.5px; letter-spacing: 0.12em; color: rgba(255,255,255,0.7); text-shadow: 0 1px 2px rgba(0,0,0,0.5);">R-181</span>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- prev/next categoría + CTA -->
+    <section style="background: {{ cat.heroBg }}; padding: 44px 24px;">
+      <div style="max-width: 1220px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+        <button onClick="{{ cat.prevGo }}" style="background: none; border: none; cursor: pointer; text-align: left; color: {{ cat.heroText }};" style-hover="opacity: 0.7;"><span style="font-family: 'Space Mono', monospace; font-size: 10px; color: {{ cat.heroMuted }}; display: block;">← Anterior</span><span style="font-weight: 800; font-size: 18px;">{{ cat.prevNombre }}</span></button>
+        <a href="{{ cat.wa }}" target="_blank" style="background: {{ cat.accent }}; color: {{ cat.chipText }}; padding: 14px 28px; border-radius: 999px; font-size: 15px; font-weight: 800;" style-hover="opacity: 0.9; color: {{ cat.chipText }};">Reservar por WhatsApp</a>
+        <button onClick="{{ cat.nextGo }}" style="background: none; border: none; cursor: pointer; text-align: right; color: {{ cat.heroText }};" style-hover="opacity: 0.7;"><span style="font-family: 'Space Mono', monospace; font-size: 10px; color: {{ cat.heroMuted }}; display: block;">Siguiente →</span><span style="font-weight: 800; font-size: 18px;">{{ cat.nextNombre }}</span></button>
+      </div>
+    </section>
+  </div>
+  </sc-if>
+
+  <!-- ============ NEGOCIOS (B2B) ============ -->
+  <sc-if value="{{ isNegocios }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <section style="background: #26211B; color: #EFE7DA; padding: 60px 24px 70px;">
+      <div style="max-width: 1220px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 46px; align-items: center;">
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #C9A24B;">Servicios para negocios · B2B</span>
+          <h1 style="margin: 0; font-weight: 800; font-size: clamp(38px, 5.5vw, 60px); line-height: 1.0; letter-spacing: -0.03em; text-transform: uppercase;">Contenido<br><em style="font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; text-transform: none; color: #C9A24B; font-size: clamp(40px, 6vw, 66px);">que vende</em></h1>
+          <p style="margin: 0; font-size: 18px; line-height: 1.62; color: #C6B8A5; max-width: 46ch; text-wrap: pretty;">Fotografía y video de producto, food styling y comerciales para hoteles, restaurantes, clínicas y marcas. Un lenguaje distinto al de una sesión familiar: pensado en tus ventas.</p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="{{ waNegocios }}" target="_blank" style="background: #C9A24B; color: #26211B; padding: 15px 28px; border-radius: 999px; font-size: 15px; font-weight: 800;" style-hover="background: #D8B45E; color: #26211B;">Agendar llamada</a>
+            <button onClick="{{ downloadKit }}" style="background: transparent; border: 1.5px solid #6B5D4C; color: #EFE7DA; padding: 14px 26px; border-radius: 999px; font-size: 15px; font-weight: 800; cursor: pointer;" style-hover="border-color: #C9A24B; color: #C9A24B;">↓ Descargar media kit (PDF)</button>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <img src="images/producto-waffles.png" alt="Food styling" style="width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 16px; margin-top: 24px;">
+          <img src="images/comercial-dental.png" alt="Comercial" style="width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 16px;">
+        </div>
+      </div>
+    </section>
+    <section style="padding: 66px 24px;">
+      <div style="max-width: 1220px; margin: 0 auto; display: flex; flex-direction: column; gap: 30px;">
+        <h2 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(28px, 3.5vw, 42px); margin: 0; text-align: center;">Paquetes para marcas</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px;">
+          <sc-for list="{{ negociosPaquetes }}" as="p" hint-placeholder-count="3">
+            <div style="background: #FFFFFF; border: 1px solid #EBDFCD; border-radius: 22px; padding: 30px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 10px 26px rgba(38,33,27,0.06);">
+              <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #C0392B;">{{ p.tag }}</span>
+              <h3 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 27px; margin: 0;">{{ p.nombre }}</h3>
+              <span style="font-family: 'Instrument Serif', serif; font-size: 34px; color: #26211B;">{{ p.precio }}</span>
+              <div style="height: 1px; background: #EBDFCD;"></div>
+              <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; flex: 1;">
+                <sc-for list="{{ p.incluye }}" as="i" hint-placeholder-count="3">
+                  <li style="display: flex; gap: 9px; font-size: 14.5px; color: #4A4034;"><span style="color: #C0392B; font-weight: 800;">✓</span>{{ i }}</li>
+                </sc-for>
+              </ul>
+              <a href="{{ waNegocios }}" target="_blank" style="text-align: center; background: #26211B; color: #F7F1E8; padding: 13px; border-radius: 999px; font-weight: 800; font-size: 14.5px;" style-hover="background: #3E362C; color: #F7F1E8;">Solicitar propuesta</a>
+            </div>
+          </sc-for>
+        </div>
+        <p style="text-align: center; margin: 0; color: #877567; font-size: 14px;">Cada proyecto se cotiza a medida. <button onClick="{{ goContacto }}" style="background: none; border: none; color: #8A2318; font-weight: 800; cursor: pointer; font-size: 14px; text-decoration: underline;">Cuéntanos de tu marca →</button></p>
+      </div>
+    </section>
+  </div>
+  </sc-if>
+
+  <!-- ============ CONTACTO ============ -->
+  <sc-if value="{{ isContacto }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <section style="padding: 56px 24px 80px;">
+      <div style="max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 46px;">
+        <div style="display: flex; flex-direction: column; gap: 22px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #9A8776;">Contacto · agenda tu sesión</span>
+          <h1 style="margin: 0; font-weight: 800; font-size: clamp(36px, 5vw, 56px); line-height: 1.0; letter-spacing: -0.03em; text-transform: uppercase;">Hablemos de<br><em style="font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; text-transform: none; color: #C0392B;">tu historia</em></h1>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #6B5D4C; max-width: 42ch;">Respondemos el mismo día. Elige el canal que prefieras: WhatsApp para algo rápido, o el correo formal si eres un negocio.</p>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <a href="{{ waGeneral }}" target="_blank" style="display: inline-flex; align-items: center; gap: 12px; background: #2E7D4F; color: #F2F8EF; padding: 16px 22px; border-radius: 16px; font-weight: 800;" style-hover="background: #256540; color: #F2F8EF;"><span style="width: 9px; height: 9px; border-radius: 50%; background: #A8D8B4;"></span>WhatsApp · respuesta inmediata</a>
+            <div style="display: flex; align-items: center; gap: 12px; background: #FBF6EE; border: 1px solid #EBDFCD; padding: 16px 22px; border-radius: 16px; font-weight: 700; color: #4A4034;">✉ hola@reloj181.mx</div>
+            <div style="display: flex; align-items: center; gap: 12px; background: #FBF6EE; border: 1px solid #EBDFCD; padding: 16px 22px; border-radius: 16px; font-weight: 700; color: #4A4034;">◎ @reloj181 · Instagram &amp; Facebook</div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 4px;">
+            <div style="background: #FBF6EE; border: 1px solid #EBDFCD; border-radius: 14px; padding: 14px;"><span style="font-family: 'Instrument Serif', serif; font-size: 19px;">Guadalajara</span><br><span style="font-size: 12px; color: #877567;">Estudio propio</span></div>
+            <div style="background: #FBF6EE; border: 1px solid #EBDFCD; border-radius: 14px; padding: 14px;"><span style="font-family: 'Instrument Serif', serif; font-size: 19px;">CDMX</span><br><span style="font-size: 12px; color: #877567;">A domicilio</span></div>
+            <div style="background: #FBF6EE; border: 1px solid #EBDFCD; border-radius: 14px; padding: 14px;"><span style="font-family: 'Instrument Serif', serif; font-size: 19px;">Cuernavaca</span><br><span style="font-size: 12px; color: #877567;">Bodas y eventos</span></div>
+          </div>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #EBDFCD; border-radius: 24px; padding: 32px; box-shadow: 0 14px 34px rgba(38,33,27,0.08);">
+          <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+            <div style="display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center; padding: 40px 10px;">
+              <span style="width: 56px; height: 56px; border-radius: 50%; background: #DBEFE1; color: #2E7D4F; display: flex; align-items: center; justify-content: center; font-size: 26px;">✓</span>
+              <h3 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 26px; margin: 0;">¡Gracias! Mensaje enviado.</h3>
+              <p style="margin: 0; color: #6B5D4C; font-size: 15px;">Te contactaremos hoy mismo. (Demo — el sitio real conecta con WhatsApp y correo.)</p>
+            </div>
+          </sc-if>
+          <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ submit }}" style="display: flex; flex-direction: column; gap: 16px;">
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #9A8776;">Formulario de contacto</span>
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700; color: #4A4034;">Nombre<input required type="text" placeholder="Tu nombre" style="border: 1px solid #DCCFB9; border-radius: 12px; padding: 12px 14px; font-size: 15px; background: #FBF6EE;"></label>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+              <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700; color: #4A4034;">Correo<input required type="email" placeholder="tu@correo.com" style="border: 1px solid #DCCFB9; border-radius: 12px; padding: 12px 14px; font-size: 15px; background: #FBF6EE;"></label>
+              <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700; color: #4A4034;">WhatsApp<input type="tel" placeholder="33 0000 0000" style="border: 1px solid #DCCFB9; border-radius: 12px; padding: 12px 14px; font-size: 15px; background: #FBF6EE;"></label>
+            </div>
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700; color: #4A4034;">Servicio<select style="border: 1px solid #DCCFB9; border-radius: 12px; padding: 12px 14px; font-size: 15px; background: #FBF6EE;"><option>Smash Cakes</option><option>Bodas</option><option>Sesiones familiares</option><option>Nacimientos</option><option>Bautizos</option><option>Navideñas</option><option>Sesiones street</option><option>Producto / Marca (negocio)</option></select></label>
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700; color: #4A4034;">Mensaje<textarea rows="3" placeholder="Cuéntanos qué celebramos y en qué fecha" style="border: 1px solid #DCCFB9; border-radius: 12px; padding: 12px 14px; font-size: 15px; background: #FBF6EE; resize: vertical;"></textarea></label>
+            <button type="submit" style="background: #C0392B; color: #FFF; border: none; padding: 15px; border-radius: 999px; font-size: 15.5px; font-weight: 800; cursor: pointer;" style-hover="background: #A52C20;">Enviar solicitud</button>
+            <span style="font-size: 11.5px; color: #9A8776; text-align: center;">Al enviar aceptas nuestro <button type="button" onClick="{{ goAviso }}" style="background: none; border: none; color: #8A2318; cursor: pointer; font-size: 11.5px; text-decoration: underline; padding: 0;">aviso de privacidad</button>.</span>
+          </form>
+          </sc-if>
+        </div>
+      </div>
+    </section>
+  </div>
+  </sc-if>
+
+  <!-- ============ AVISO DE PRIVACIDAD ============ -->
+  <sc-if value="{{ isAviso }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <section style="padding: 56px 24px 80px;">
+      <div style="max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #9A8776;">Legal · R-181</span>
+        <h1 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(32px, 4.5vw, 48px); margin: 0;">Aviso de privacidad</h1>
+        <p style="margin: 0; color: #4A4034; font-size: 16px; line-height: 1.7;">En cumplimiento con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares, <strong>Reloj 181</strong> (Emily Razo) informa que los datos que nos proporciones a través de este sitio —nombre, correo, teléfono y detalles de tu evento— serán utilizados únicamente para contactarte, elaborar cotizaciones y coordinar tu sesión.</p>
+        <p style="margin: 0; color: #4A4034; font-size: 16px; line-height: 1.7;">No compartimos tu información con terceros con fines comerciales. Las fotografías realizadas son propiedad de Reloj 181; su publicación en portafolio o redes se acuerda previamente contigo. Puedes ejercer tus derechos ARCO escribiendo a <a href="mailto:hola@reloj181.mx">hola@reloj181.mx</a>.</p>
+        <p style="margin: 8px 0 0; font-family: 'Space Mono', monospace; font-size: 12px; color: #9A8776;">Última actualización: julio 2026 · GDL — CDMX — CVA</p>
+        <button onClick="{{ goHome }}" style="align-self: flex-start; margin-top: 8px; background: #26211B; color: #F7F1E8; border: none; padding: 13px 24px; border-radius: 999px; font-weight: 800; cursor: pointer;" style-hover="background: #3E362C;">← Volver al inicio</button>
+      </div>
+    </section>
+  </div>
+  </sc-if>
+
+  <!-- ============ CINE PROFESIONAL ============ -->
+  <sc-if value="{{ isCine }}" hint-placeholder-val="{{ false }}">
+  <div style="background: #0B0B0C; color: #ECE9E1;">
+    <div style="height: 10px; background: #000;"></div>
+    <section style="max-width: 1220px; margin: 0 auto; padding: 50px 24px 44px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 46px; align-items: center;">
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: #8A8479;">R-181 · Motion Unit · Cine profesional</span>
+        <h1 style="margin: 0; line-height: 0.9;"><span style="display: block; font-weight: 800; font-size: clamp(52px, 9vw, 108px); letter-spacing: -0.03em;">CINE</span><span style="display: block; font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: clamp(30px, 4.5vw, 50px); color: #C0392B; margin-top: 4px;">que se proyecta</span></h1>
+        <p style="margin: 0; font-size: 18px; line-height: 1.62; color: #B7B2A6; max-width: 48ch; text-wrap: pretty;">La unidad de cine de Reloj 181. Aquí viven los proyectos serios: cortometraje, comercial, documental y ficción. <strong style="color: #ECE9E1;">Emily Razo</strong> como operadora de cámara profesional y directora de fotografía.</p>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; font-family: 'Space Mono', monospace; font-size: 11px;">
+          <span style="border: 1px solid #333; border-radius: 999px; padding: 6px 12px; color: #C9C4B8;">Camera Operator</span>
+          <span style="border: 1px solid #333; border-radius: 999px; padding: 6px 12px; color: #C9C4B8;">Dir. de Fotografía</span>
+          <span style="border: 1px solid #333; border-radius: 999px; padding: 6px 12px; color: #C9C4B8;">Gimbal / Steadicam</span>
+          <span style="border: 1px solid #333; border-radius: 999px; padding: 6px 12px; color: #C9C4B8;">Drone</span>
+        </div>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px;">
+          <button onClick="{{ goCv }}" style="background: #C0392B; color: #FFF; border: none; padding: 15px 28px; border-radius: 999px; font-size: 15px; font-weight: 800; cursor: pointer;" style-hover="background: #A52C20;">Ver CV profesional →</button>
+          <a href="{{ waCine }}" target="_blank" style="border: 1.5px solid #444; color: #ECE9E1; padding: 14px 26px; border-radius: 999px; font-size: 15px; font-weight: 800;" style-hover="border-color: #C0392B; color: #ECE9E1;">Contacto para productores</a>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="position: relative; aspect-ratio: 16/9; border-radius: 6px; overflow: hidden; border: 1px solid #2A2A2A; box-shadow: 0 30px 70px rgba(0,0,0,0.6);">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="cine-reel" shape="rect" placeholder="STILL / REEL PRINCIPAL — arrastra tu foto de cine" hint-size="100%,100%" style="width: 100%; height: 100%;"></x-import>
+          <span style="position: absolute; left: 12px; bottom: 10px; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: rgba(255,255,255,0.8); text-shadow: 0 1px 3px #000; pointer-events: none;">REEL 2026 · R-181</span>
+        </div>
+        <span style="font-family: 'Space Mono', monospace; font-size: 10.5px; color: #7C766B;">FIG. 01 — pieza principal del showreel</span>
+      </div>
+    </section>
+
+    <section style="max-width: 1220px; margin: 0 auto; padding: 26px 24px 60px;">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 22px; border-top: 1px solid #262626; padding-top: 30px;">
+        <h2 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(28px, 3.5vw, 40px); margin: 0; color: #ECE9E1;">Proyectos de cine</h2>
+        <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #7C766B;">Arrastra aquí los stills que me mandes →</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+        <sc-for list="{{ cineProyectos }}" as="p" hint-placeholder-count="6">
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="position: relative; aspect-ratio: 16/9; border-radius: 5px; overflow: hidden; border: 1px solid #262626; background: #141414;">
+              <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ p.id }}" shape="rect" placeholder="{{ p.nota }}" hint-size="100%,100%" style="width: 100%; height: 100%;"></x-import>
+            </div>
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px;">
+              <span style="font-weight: 800; font-size: 15px; color: #ECE9E1;">{{ p.titulo }}</span>
+              <span style="font-family: 'Space Mono', monospace; font-size: 10px; color: #7C766B;">{{ p.rol }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section style="background: #111112; padding: 54px 24px;">
+      <div style="max-width: 1220px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center;">
+        <h2 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(26px, 3.5vw, 40px); margin: 0; color: #ECE9E1; max-width: 24ch;">¿Buscas operadora de cámara para tu producción?</h2>
+        <p style="margin: 0; color: #9C978B; font-size: 15px;">Disponible para viajar · GDL — CDMX — Cuernavaca</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 6px;">
+          <button onClick="{{ goCv }}" style="background: #ECE9E1; color: #0B0B0C; border: none; padding: 15px 30px; border-radius: 999px; font-size: 15px; font-weight: 800; cursor: pointer;" style-hover="background: #FFF;">Ver CV / Portafolio</button>
+          <a href="mailto:hola@reloj181.mx" style="border: 1.5px solid #444; color: #ECE9E1; padding: 14px 28px; border-radius: 999px; font-size: 15px; font-weight: 800;" style-hover="border-color: #C0392B; color: #ECE9E1;">hola@reloj181.mx</a>
+        </div>
+      </div>
+    </section>
+    <div style="height: 10px; background: #000;"></div>
+  </div>
+  </sc-if>
+
+  <!-- ============ CV EMILY RAZO ============ -->
+  <sc-if value="{{ isCv }}" hint-placeholder-val="{{ false }}">
+  <div style="background: #0B0B0C; padding: 44px 20px 60px;">
+    <div style="max-width: 920px; margin: 0 auto 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+      <button onClick="{{ goCine }}" style="background: none; border: 1px solid #333; color: #C9C4B8; padding: 8px 16px; border-radius: 999px; cursor: pointer; font-size: 13px; font-weight: 700;" style-hover="border-color: #C0392B; color: #ECE9E1;">← Volver a Cine</button>
+      <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #6E6A60;">reloj181.mx/cine/cv · para productores</span>
+    </div>
+    <div style="max-width: 920px; margin: 0 auto; background: #FBF7F0; color: #26211B; border-radius: 14px; overflow: hidden; box-shadow: 0 34px 80px rgba(0,0,0,0.55);">
+      <!-- header -->
+      <div style="background: #0C0C0D; color: #ECE9E1; padding: 30px 34px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+        <div style="width: 108px; height: 108px; border-radius: 12px; overflow: hidden; flex: none; border: 1px solid #333;">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="cv-retrato" shape="rect" placeholder="retrato de Emily" hint-size="108px,108px" style="width: 108px; height: 108px;"></x-import>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 5px; min-width: 200px;">
+          <span style="font-family: 'Space Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #C0392B;">CV · Camera Operator</span>
+          <span style="font-weight: 800; font-size: 32px; letter-spacing: -0.02em;">Emily Razo</span>
+          <span style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 19px; color: #C9C4B8;">Directora de fotografía · operadora de cámara</span>
+          <span style="font-family: 'Space Mono', monospace; font-size: 10.5px; color: #8A8479; margin-top: 4px;">hola@reloj181.mx · @reloj181 · GDL — CDMX — CVA</span>
+        </div>
+        <button onClick="{{ downloadCv }}" style="margin-left: auto; background: #C0392B; color: #FFF; border: none; padding: 12px 20px; border-radius: 999px; font-size: 13.5px; font-weight: 800; cursor: pointer; white-space: nowrap;" style-hover="background: #A52C20;">↓ Descargar CV (PDF)</button>
+      </div>
+      <!-- body -->
+      <div style="padding: 32px 34px 38px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 34px;">
+        <div style="display: flex; flex-direction: column; gap: 26px;">
+          <div>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #B58A2E;">Perfil</span>
+            <p style="margin: 8px 0 0; font-size: 15px; line-height: 1.6; color: #4A4034;">Operadora de cámara y directora de fotografía con base en Guadalajara. Del foto-fija al set de cine: encuadre preciso, movimiento con gimbal y drone, y una mirada narrativa formada en cientos de sesiones reales. Lista para sumarme a tu producción.</p>
+          </div>
+          <div>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #B58A2E;">Experiencia</span>
+            <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 10px;">
+              <sc-for list="{{ cvExperiencia }}" as="e" hint-placeholder-count="4">
+                <div style="display: flex; flex-direction: column; gap: 2px; padding-left: 14px; border-left: 2px solid #E0D3BF;">
+                  <span style="font-weight: 800; font-size: 15px;">{{ e.rol }}</span>
+                  <span style="font-size: 13.5px; color: #6B5D4C;">{{ e.lugar }}</span>
+                  <span style="font-family: 'Space Mono', monospace; font-size: 10.5px; color: #9A8776;">{{ e.anio }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+          <div>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #B58A2E;">Referencias</span>
+            <p style="margin: 8px 0 0; font-size: 14px; color: #6B5D4C;">Disponibles a solicitud · portafolio y reel completo al contactar.</p>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 26px;">
+          <div>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #B58A2E;">Habilidades</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;">
+              <sc-for list="{{ cvSkills }}" as="s" hint-placeholder-count="6">
+                <span style="background: #F0E7D6; color: #5A4A32; border-radius: 999px; padding: 6px 13px; font-size: 13px; font-weight: 700;">{{ s }}</span>
+              </sc-for>
+            </div>
+          </div>
+          <div>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #B58A2E;">Equipo</span>
+            <ul style="list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-direction: column; gap: 7px;">
+              <sc-for list="{{ cvEquipo }}" as="q" hint-placeholder-count="4">
+                <li style="display: flex; gap: 8px; font-size: 14px; color: #4A4034;"><span style="color: #C0392B; font-weight: 800;">·</span>{{ q }}</li>
+              </sc-for>
+            </ul>
+          </div>
+          <div>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #B58A2E;">Stills del reel</span>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;">
+              <div style="aspect-ratio: 16/9; border-radius: 6px; overflow: hidden; border: 1px solid #E0D3BF;"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="cv-still-1" shape="rect" placeholder="still 1" hint-size="100%,100%" style="width: 100%; height: 100%;"></x-import></div>
+              <div style="aspect-ratio: 16/9; border-radius: 6px; overflow: hidden; border: 1px solid #E0D3BF;"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="cv-still-2" shape="rect" placeholder="still 2" hint-size="100%,100%" style="width: 100%; height: 100%;"></x-import></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ============ FOOTER (persistente) ============ -->
+  <footer style="background: #201B15; color: #C6B8A5; padding: 56px 24px 34px;">
+    <div style="max-width: 1220px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 34px;">
+      <div style="display: flex; flex-direction: column; gap: 14px; max-width: 300px;">
+        <div style="display: flex; align-items: center; gap: 11px; color: #F7F1E8;">
+          <svg width="30" height="30" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18.2" stroke="currentColor" stroke-width="1.4"></circle><circle cx="20" cy="20" r="11" stroke="currentColor" stroke-width="1.4"></circle><circle cx="20" cy="20" r="4" stroke="#C0392B" stroke-width="1.6"></circle><path d="M20 1V39 M1 20H39" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 3"></path></svg>
+          <span style="font-weight: 800; letter-spacing: 0.3em; font-size: 15px;">RELOJ 181</span>
+        </div>
+        <p style="margin: 0; font-size: 14px; line-height: 1.6;">Fotografía y video de Emily Razo. Instrumento óptico de registro para las historias que importan.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #8B7A69;">Servicios</span>
+        <sc-for list="{{ catList }}" as="c" hint-placeholder-count="8">
+          <button onClick="{{ c.go }}" style="background: none; border: none; text-align: left; cursor: pointer; color: #C6B8A5; font-size: 14px; padding: 0;" style-hover="color: #F7F1E8;">{{ c.nombre }}</button>
+        </sc-for>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #8B7A69;">Ciudades</span>
+        <span style="font-size: 14px;">Fotógrafo en Guadalajara</span>
+        <span style="font-size: 14px;">Sesiones en CDMX</span>
+        <span style="font-size: 14px;">Bodas en Cuernavaca</span>
+        <button onClick="{{ goNegocios }}" style="background: none; border: none; text-align: left; cursor: pointer; color: #C6B8A5; font-size: 14px; padding: 6px 0 0;" style-hover="color: #F7F1E8;">Para negocios →</button>
+        <button onClick="{{ goCine }}" style="background: none; border: none; text-align: left; cursor: pointer; color: #C6B8A5; font-size: 14px; padding: 0;" style-hover="color: #F7F1E8;">Cine profesional →</button>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #8B7A69;">Contacto</span>
+        <a href="{{ waGeneral }}" target="_blank" style="color: #C6B8A5; font-size: 14px;" style-hover="color: #F7F1E8;">WhatsApp</a>
+        <a href="mailto:hola@reloj181.mx" style="color: #C6B8A5; font-size: 14px;" style-hover="color: #F7F1E8;">hola@reloj181.mx</a>
+        <span style="font-size: 14px;">@reloj181</span>
+        <button onClick="{{ goContacto }}" style="background: none; border: none; text-align: left; cursor: pointer; color: #C6B8A5; font-size: 14px; padding: 6px 0 0;" style-hover="color: #F7F1E8;">Formulario de contacto →</button>
+      </div>
+    </div>
+    <div style="max-width: 1220px; margin: 30px auto 0; padding-top: 20px; border-top: 1px solid #3A322A; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-family: 'Space Mono', monospace; font-size: 11px; color: #8B7A69;">
+      <span>© 2026 RELOJ 181 · Todas las fotografías son propiedad de la marca</span>
+      <button onClick="{{ goAviso }}" style="background: none; border: none; cursor: pointer; color: #8B7A69; font-family: inherit; font-size: 11px;" style-hover="color: #F7F1E8;">Aviso de privacidad</button>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <sc-if value="{{ showFloatingCta }}" hint-placeholder-val="{{ true }}">
+    <a href="{{ waGeneral }}" target="_blank" style="position: fixed; z-index: 50; right: 22px; bottom: 22px; display: flex; align-items: center; gap: 10px; background: #2E7D4F; color: #F2F8EF; padding: 14px 22px; border-radius: 999px; font-weight: 800; font-size: 15px; box-shadow: 0 14px 34px rgba(35,64,47,0.42);" style-hover="background: #256540; color: #F2F8EF;"><span style="width: 9px; height: 9px; border-radius: 50%; background: #A8D8B4;"></span>Agendar</a>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: {&quot;width&quot;: 1280},
+  &quot;whatsapp&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;5213310000000&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Contacto&quot;},
+  &quot;showFloatingCta&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Contacto&quot;}
+}">
+class Component extends DCLogic {
+  constructor(props) { super(props); this.carousel = React.createRef(); }
+  state = { page: "home", menuOpen: false, sent: false };
+
+  go(page) {
+    return () => {
+      this.setState({ page, menuOpen: false, sent: false });
+      if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "auto" });
+    };
+  }
+
+  renderVals() {
+    const wa = (this.props.whatsapp ?? "5213310000000").replace(/\D/g, "");
+    const waLink = (msg) => "https://wa.me/" + wa + "?text=" + encodeURIComponent(msg || "¡Hola Reloj 181! Me gustaría agendar una sesión 📸");
+
+    const defs = {
+      smash: { nombre: "Smash Cakes", slug: "/smash-cakes", cursive: "betún y risas", estado: "Servicio estrella",
+        accent: "#E9A81C", accentDk: "#8A6206", deep: "#4E3806", tint: "#FBEDC6", muted: "#7A5B12", label: "#8A6206", chipText: "#4E3806",
+        heroBg: "#FBEDC6", heroText: "#4E3806", heroMuted: "#7A5B12",
+        descripcion: "El dulce caos de su primer añito: set temático decorado, pastel para embarrar y todas las risas capturadas en foto y video.",
+        ciudad: "Estudio en Guadalajara · disponible en CDMX y Cuernavaca", desde: "$2,400",
+        incluye: ["Set temático decorado", "Pastel smash incluido", "Galería digital editada"],
+        heroImg: "images/sirenita.png",
+        fotos: [
+          { src: "images/sirenita.png", titulo: "Sirenita bajo el mar" },
+          { src: "images/smash-arcoiris.jpg", titulo: "Arcoíris & CoComelon" },
+          { src: "images/cumple-dos.png", titulo: "Sus dos añitos" },
+          { slot: true, id: "smash-nueva", nota: "arrastra una foto smash" },
+        ] },
+      bodas: { nombre: "Bodas", slug: "/bodas", cursive: "para siempre", estado: "Nueva línea",
+        accent: "#B99C6B", accentDk: "#8A744C", deep: "#463C2C", tint: "#F5EFE4", muted: "#7A6E58", label: "#8A744C", chipText: "#2E2820",
+        heroBg: "#FBF7F0", heroText: "#3A332A", heroMuted: "#7A6E58",
+        descripcion: "Tu boda contada con calma y elegancia: cobertura de la ceremonia, sesión de pareja en locación y tomas aéreas con drone.",
+        ciudad: "Bodas en Guadalajara, Cuernavaca y CDMX", desde: "$12,000",
+        incluye: ["Cobertura de ceremonia", "Sesión de pareja", "Video y drone opcional"],
+        heroImg: "images/boda-porton.jpg",
+        fotos: [
+          { src: "images/boda-porton.jpg", titulo: "Portón de cantera" },
+          { src: "images/boda-templo.jpg", titulo: "Templo · ceremonia" },
+          { src: "images/boda-ruinas.jpg", titulo: "Ex-hacienda en ruinas" },
+          { src: "images/boda-ceremonia.jpg", titulo: "El sí, adentro" },
+          { src: "images/boda-muro.jpg", titulo: "Sesión de pareja" },
+          { src: "images/boda-piano.png", titulo: "Detalle editorial" },
+          { src: "images/compromiso.png", titulo: "Pre-boda / compromiso" },
+        ] },
+      familiar: { nombre: "Sesiones Familiares", slug: "/familias", cursive: "los que amas", estado: "Muy pedido",
+        accent: "#4FA98C", accentDk: "#2F7460", deep: "#234B3F", tint: "#DCF0E8", muted: "#3E6B5C", label: "#2F7460", chipText: "#FFFFFF",
+        heroBg: "#DCF0E8", heroText: "#234B3F", heroMuted: "#3E6B5C",
+        descripcion: "Sesiones cálidas para mamá, papá y los peques. En estudio o al aire libre, sin poses forzadas: solo su historia.",
+        ciudad: "En estudio (GDL) o a domicilio en CDMX y Cuernavaca", desde: "$1,900",
+        incluye: ["Sesión de 1 hora", "Cambio de outfit", "20 fotos editadas"],
+        heroImg: "images/familiar-flores.jpg",
+        fotos: [
+          { src: "images/familiar-flores.jpg", titulo: "Mamá & bebé" },
+          { src: "images/cumple-dos.png", titulo: "Cumpleaños" },
+          { slot: true, id: "fam-nueva", nota: "arrastra una foto familiar" },
+        ] },
+      nacimiento: { nombre: "Nacimientos", slug: "/nacimientos", cursive: "apenas llegan", estado: "Servicio estrella",
+        accent: "#5C82AC", accentDk: "#3A567C", deep: "#2A3C52", tint: "#DEE8F3", muted: "#46617E", label: "#3A567C", chipText: "#FFFFFF",
+        heroBg: "#DEE8F3", heroText: "#2A3C52", heroMuted: "#46617E",
+        descripcion: "Del embarazo al recién nacido: maternidad, revelación de género, nacimiento en hospital y sesión newborn en estudio.",
+        ciudad: "Cobertura en Guadalajara, CDMX y Cuernavaca", desde: "$2,200",
+        incluye: ["Maternidad o newborn", "Props y arrullos", "Cobertura en hospital opcional"],
+        heroImg: "images/maternidad-encaje.jpg",
+        fotos: [
+          { src: "images/maternidad-encaje.jpg", titulo: "Maternidad en encaje" },
+          { src: "images/maternidad-pareja.jpg", titulo: "En espera, los dos" },
+          { src: "images/nacimiento-ultrasonido.jpg", titulo: "Primer ultrasonido" },
+          { src: "images/nacimiento-caps.jpg", titulo: "Mom & Dad · est. 2026" },
+          { src: "images/newborn-oso.png", titulo: "Newborn en estudio" },
+          { src: "images/newborn-hospital.png", titulo: "Nacimiento en hospital" },
+          { src: "images/revelacion.png", titulo: "Revelación de género" },
+        ] },
+      bautizo: { nombre: "Bautizos", slug: "/bautizos", cursive: "primera bendición", estado: "En crecimiento",
+        accent: "#C7A87C", accentDk: "#977B4C", deep: "#5A4A32", tint: "#F0E7D6", muted: "#7E6A4C", label: "#977B4C", chipText: "#4A3B26",
+        heroBg: "#F0E7D6", heroText: "#5A4A32", heroMuted: "#7E6A4C",
+        descripcion: "El recuerdo de su bautizo con la ternura y la luz que ese día merece. Sets suaves, alas y detalles hechos a mano.",
+        ciudad: "Estudio en Guadalajara · a domicilio bajo pedido", desde: "$1,800",
+        incluye: ["Sesión temática", "Props de bautizo", "Galería digital"],
+        heroImg: "images/bautizo-angel.jpg",
+        fotos: [
+          { src: "images/bautizo-angel.jpg", titulo: "Mi bautizo · alas" },
+          { slot: true, id: "bautizo-2", nota: "arrastra una foto de bautizo" },
+          { slot: true, id: "bautizo-3", nota: "arrastra una foto de bautizo" },
+        ] },
+      navidad: { nombre: "Navideñas", slug: "/navidenas", cursive: "temporada", estado: "Temporada",
+        accent: "#8A5A34", accentDk: "#5E3C20", deep: "#3E2A18", tint: "#EADBC9", muted: "#6E4E34", label: "#5E3C20", chipText: "#FFFFFF",
+        heroBg: "#EADBC9", heroText: "#3E2A18", heroMuted: "#6E4E34",
+        descripcion: "Mini-sesiones de temporada: navideñas, otoño y fechas especiales con sets listos y cupo limitado.",
+        ciudad: "Cupo por temporada en GDL, CDMX y Cuernavaca", desde: "$1,200",
+        incluye: ["Mini-sesión 30 min", "Set de temporada", "10 fotos editadas"],
+        heroImg: "images/navidad-kids.png",
+        fotos: [
+          { src: "images/navidad-kids.png", titulo: "Navidad en familia" },
+          { slot: true, id: "nav-2", nota: "arrastra una foto navideña" },
+          { slot: true, id: "nav-3", nota: "arrastra una foto de temporada" },
+        ] },
+      street: { nombre: "Sesiones Street", slug: "/street", cursive: "ciudad y luz", estado: "En crecimiento",
+        accent: "#4C8A5E", accentDk: "#2E5638", deep: "#213C29", tint: "#DEEBE0", muted: "#3C6248", label: "#2E5638", chipText: "#FFFFFF",
+        heroBg: "#DEEBE0", heroText: "#213C29", heroMuted: "#3C6248",
+        descripcion: "Sesiones casuales y editoriales en la calle: retrato urbano, lifestyle y contenido para redes con dirección de poses.",
+        ciudad: "Centro de Guadalajara y locaciones urbanas", desde: "$1,500",
+        incluye: ["Locación urbana", "Dirección de poses", "Fotos listas para redes"],
+        heroImg: "images/editorial-taxi.png",
+        fotos: [
+          { src: "images/editorial-taxi.png", titulo: "Editorial urbano" },
+          { slot: true, id: "street-2", nota: "arrastra una foto street" },
+          { slot: true, id: "street-3", nota: "arrastra una foto casual" },
+        ] },
+      producto: { nombre: "Producto & Marca", slug: "/producto", cursive: "que sí vende", estado: "B2B · Marcas",
+        accent: "#C0392B", accentDk: "#8A2318", deep: "#5A1810", tint: "#F6E1DD", muted: "#E0B3A6", label: "#EB9784", chipText: "#FFFFFF",
+        heroBg: "#5A1810", heroText: "#F8EBE5", heroMuted: "#E0B3A6",
+        descripcion: "Food styling, producto en estudio y video comercial para restaurantes, marcas y negocios locales. Contenido pensado en tus ventas.",
+        ciudad: "Estudio en Guadalajara · rodajes en CDMX y Cuernavaca", desde: "Cotización",
+        incluye: ["Food & producto", "Video comercial", "Contenido para marcas"],
+        heroImg: "images/producto-waffles.png",
+        fotos: [
+          { src: "images/producto-waffles.png", titulo: "Food styling" },
+          { src: "images/producto-yogurt.png", titulo: "Producto en estudio" },
+          { src: "images/comercial-dental.png", titulo: "Comercial de marca" },
+          { src: "images/rodaje-luz.png", titulo: "Detrás de cámara" },
+        ] },
+    };
+
+    const order = ["smash", "bodas", "familiar", "nacimiento", "bautizo", "navidad", "street", "producto"];
+    const catList = order.map((key) => ({ ...defs[key], key, go: this.go(key) }));
+
+    const page = this.state.page;
+    const idx = order.indexOf(page);
+    const isCategory = idx !== -1;
+    let cat = null;
+    if (isCategory) {
+      const prev = defs[order[(idx - 1 + order.length) % order.length]];
+      const next = defs[order[(idx + 1) % order.length]];
+      cat = { ...defs[page],
+        wa: waLink("¡Hola Reloj 181! Me interesa una sesión de " + defs[page].nombre + " 📸"),
+        prevGo: this.go(order[(idx - 1 + order.length) % order.length]), prevNombre: prev.nombre,
+        nextGo: this.go(order[(idx + 1) % order.length]), nextNombre: next.nombre };
+    }
+
+    const dm = { smash: "smash", bodas: "bodas", familiar: "familiar", nacimiento: "nacimiento", producto: "producto", bautizo: "bautizo" };
+    const destacados = [
+      { src: "images/boda-porton.jpg", titulo: "Cantera & amor", key: "bodas" },
+      { src: "images/sirenita.png", titulo: "Sirenita del mar", key: "smash" },
+      { src: "images/familiar-flores.jpg", titulo: "Mamá & bebé", key: "familiar" },
+      { src: "images/maternidad-encaje.jpg", titulo: "En espera", key: "nacimiento" },
+      { src: "images/boda-ruinas.jpg", titulo: "Ex-hacienda", key: "bodas" },
+      { src: "images/producto-waffles.png", titulo: "Food styling", key: "producto" },
+      { src: "images/nacimiento-caps.jpg", titulo: "Est. 2026", key: "nacimiento" },
+      { src: "images/bautizo-angel.jpg", titulo: "Primera bendición", key: "bautizo" },
+    ].map((d) => ({ ...d, catNombre: defs[d.key].nombre, accent: defs[d.key].accent, accentDk: defs[d.key].accentDk, go: this.go(d.key) }));
+
+    const testimonios = [
+      { texto: "Emily capturó el primer añito de mi hija como si fuera cine. Lloré viendo la galería.", nombre: "Mariana G.", detalle: "Mamá · Smash Cake", inicial: "M", accent: "#E9A81C" },
+      { texto: "Nuestra boda en Guadalajara quedó espectacular; el video con drone nos dejó sin palabras.", nombre: "Luis & Karen", detalle: "Boda · Cuernavaca", inicial: "L", accent: "#B99C6B" },
+      { texto: "Contratamos contenido para el restaurante y los platillos que fotografió se volvieron los más pedidos.", nombre: "Chef Rodrigo", detalle: "Marca · Producto", inicial: "R", accent: "#C0392B" },
+    ];
+
+    const clientes = [{ id: "cliente-1" }, { id: "cliente-2" }, { id: "cliente-3" }, { id: "cliente-4" }];
+
+    const cineProyectos = [
+      { id: "cine-p1", titulo: "Cortometraje", rol: "DP / Operadora", nota: "still de cortometraje" },
+      { id: "cine-p2", titulo: "Comercial de cine", rol: "Camera Op.", nota: "still de comercial" },
+      { id: "cine-p3", titulo: "Documental", rol: "Operadora", nota: "still de documental" },
+      { id: "cine-p4", titulo: "Videoclip", rol: "Camera Op.", nota: "still de videoclip" },
+      { id: "cine-p5", titulo: "Spot publicitario", rol: "DP", nota: "still de spot" },
+      { id: "cine-p6", titulo: "Detrás de cámara", rol: "BTS", nota: "foto detrás de cámara" },
+    ];
+    const cvExperiencia = [
+      { rol: "Directora de fotografía / Operadora de cámara", lugar: "Reloj 181 — producción propia", anio: "2022 — presente" },
+      { rol: "Camera Operator", lugar: "Comerciales y contenido para marcas locales", anio: "2024 — 2025" },
+      { rol: "2ª Cámara / Steadicam", lugar: "Cobertura de eventos y conciertos", anio: "2023 — 2024" },
+      { rol: "DP", lugar: "Cortometraje independiente", anio: "2024" },
+    ];
+    const cvSkills = ["Operación de cámara", "Dirección de fotografía", "Iluminación", "Gimbal / Steadicam", "Piloto de drone", "Composición y encuadre", "Color y edición"];
+    const cvEquipo = ["Cuerpos full-frame y APS-C", "Set de lentes prime y zoom", "Estabilizador de mano (gimbal)", "Drone con cámara 4K", "Iluminación LED continua"];
+
+    const negociosPaquetes = [
+      { tag: "Esencial", nombre: "Foto de producto", precio: "$3,900", incluye: ["Hasta 15 productos", "Fondo neutro / lifestyle", "Retoque profesional", "Uso en redes y web"] },
+      { tag: "Popular", nombre: "Contenido para redes", precio: "$7,500", incluye: ["Sesión de medio día", "20 fotos + 5 reels", "Food styling incluido", "Entrega en 5 días"] },
+      { tag: "Premium", nombre: "Comercial de marca", precio: "Cotización", incluye: ["Video comercial 30-60s", "Guion y dirección", "Tomas con drone", "Fotos fijas de campaña"] },
+    ];
+
+    return {
+      path: isCategory ? cat.slug : (page === "home" ? "/" : "/" + page),
+      isHome: page === "home", isCategory, cat,
+      isNegocios: page === "negocios", isContacto: page === "contacto", isAviso: page === "aviso",
+      catList, destacados, testimonios, clientes, negociosPaquetes,
+      cineProyectos, cvExperiencia, cvSkills, cvEquipo,
+      isCine: page === "cine", isCv: page === "cv",
+      goCine: this.go("cine"), goCv: this.go("cv"),
+      waCine: waLink("Hola Emily, soy productor/a y me interesa tu material de cine profesional 🎬"),
+      downloadCv: () => { if (typeof window !== "undefined") window.alert("Demo: aquí se descargaría el CV de Emily Razo en PDF."); },
+      menuOpen: this.state.menuOpen,
+      toggleMenu: () => this.setState((s) => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      goHome: this.go("home"), goBodas: this.go("bodas"), goSmash: this.go("smash"),
+      goNegocios: this.go("negocios"), goContacto: this.go("contacto"), goAviso: this.go("aviso"),
+      carouselRef: this.carousel,
+      scrollNext: () => { const el = this.carousel.current; if (el) el.scrollBy({ left: 360, behavior: "smooth" }); },
+      scrollPrev: () => { const el = this.carousel.current; if (el) el.scrollBy({ left: -360, behavior: "smooth" }); },
+      waGeneral: waLink(),
+      waNegocios: waLink("¡Hola Reloj 181! Represento a una marca/negocio y quiero cotizar contenido 📷"),
+      downloadKit: () => { if (typeof window !== "undefined") window.alert("Demo: aquí se descargaría el media kit en PDF con paquetes y rangos de precio."); },
+      submit: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+      sent: this.state.sent, notSent: !this.state.sent,
+      showFloatingCta: this.props.showFloatingCta ?? true,
+    };
+  }
+}
+</script>
+</body>
+</html>
