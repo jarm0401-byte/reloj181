@@ -23,10 +23,10 @@
 </style>
 </helmet>
 
-<div style="font-family: 'Karla', sans-serif; color: #26211B; background: #F7F1E8; min-height: 100vh; overflow-x: hidden;">
+<div style="font-family: 'Karla', sans-serif; color: #26211B; background: #F7F1E8; min-height: 100vh; overflow-x: hidden; padding-top: 88px;">
 
   <!-- ============ HEADER (persistente) ============ -->
-  <header style="position: sticky; top: 0; z-index: 40; background: rgba(247,241,232,0.94); backdrop-filter: blur(10px); border-bottom: 1px solid #E4D9C8;">
+  <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 60; background: rgba(247,241,232,0.94); backdrop-filter: blur(10px); border-bottom: 1px solid #E4D9C8; transform: translateY({{ headerTransform }}); opacity: {{ headerOpacity }}; pointer-events: {{ headerPointerEvents }}; transition: transform 180ms ease, opacity 180ms ease;">
     <div style="max-width: 1220px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
       <button onClick="{{ goHome }}" style="display: flex; align-items: center; gap: 12px; background: none; border: none; cursor: pointer; padding: 0; color: #26211B;">
         <svg width="34" height="34" viewBox="0 0 40 40" fill="none" style="flex: none;">
@@ -620,8 +620,29 @@
   &quot;showFloatingCta&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Contacto&quot;}
 }">
 class Component extends DCLogic {
-  constructor(props) { super(props); this.carousel = React.createRef(); }
-  state = { page: "home", menuOpen: false, sent: false };
+  constructor(props) { super(props); this.carousel = React.createRef(); this.hideTimer = null; }
+  state = { page: "home", menuOpen: false, sent: false, headerVisible: true };
+
+  componentDidMount() {
+    window.addEventListener("mousemove", this.handleMouseMove);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("mousemove", this.handleMouseMove);
+    if (this.hideTimer) clearTimeout(this.hideTimer);
+  }
+
+  handleMouseMove = (e) => {
+    if (e.clientY <= 96) {
+      if (this.hideTimer) clearTimeout(this.hideTimer);
+      if (!this.state.headerVisible) this.setState({ headerVisible: true });
+      return;
+    }
+    if (this.state.headerVisible) {
+      if (this.hideTimer) clearTimeout(this.hideTimer);
+      this.hideTimer = setTimeout(() => this.setState({ headerVisible: false }), 140);
+    }
+  };
 
   go(page) {
     return () => {
@@ -805,6 +826,9 @@ class Component extends DCLogic {
     return {
       path: isCategory ? cat.slug : (page === "home" ? "/" : "/" + page),
       isHome: page === "home", isCategory, cat,
+      headerTransform: this.state.headerVisible ? "0" : "-100%",
+      headerOpacity: this.state.headerVisible ? "1" : "0",
+      headerPointerEvents: this.state.headerVisible ? "auto" : "none",
       isNegocios: page === "negocios", isContacto: page === "contacto", isAviso: page === "aviso",
       catList, destacados, testimonios, clientes, negociosPaquetes,
       cineProyectos, cvExperiencia, cvSkills, cvEquipo,
