@@ -23,37 +23,37 @@
 </style>
 </helmet>
 
-<div style="font-family: 'Karla', sans-serif; color: #26211B; background: #F7F1E8; min-height: 100vh; overflow-x: hidden; padding-top: 88px;">
+<div style="font-family: 'Karla', sans-serif; color: #26211B; background: #F7F1E8; min-height: 100vh; overflow-x: hidden; padding-top: {{ bodyPaddingTop }}px;">
 
   <!-- ============ HEADER (persistente) ============ -->
-  <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 60; background: rgba(247,241,232,0.94); backdrop-filter: blur(10px); border-bottom: 1px solid #E4D9C8; transform: translateY({{ headerTransform }}); opacity: {{ headerOpacity }}; pointer-events: {{ headerPointerEvents }}; transition: transform 180ms ease, opacity 180ms ease;">
-    <div style="max-width: 1220px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+  <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 60; background: rgba(247,241,232,0.94); backdrop-filter: blur(10px); border-bottom: 1px solid #E4D9C8; transition: padding 180ms ease, box-shadow 180ms ease; box-shadow: {{ headerShadow }};">
+    <div style="max-width: 1220px; margin: 0 auto; padding: {{ headerRowPadding }}px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
       <button onClick="{{ goHome }}" style="display: flex; align-items: center; gap: 12px; background: none; border: none; cursor: pointer; padding: 0; color: #26211B;">
-        <svg width="34" height="34" viewBox="0 0 40 40" fill="none" style="flex: none;">
+        <svg width="{{ logoSize }}" height="{{ logoSize }}" viewBox="0 0 40 40" fill="none" style="flex: none;">
           <circle cx="20" cy="20" r="18.2" stroke="#26211B" stroke-width="1.4"></circle>
           <circle cx="20" cy="20" r="11" stroke="#26211B" stroke-width="1.4"></circle>
           <circle cx="20" cy="20" r="4" stroke="#C0392B" stroke-width="1.6"></circle>
           <path d="M20 1V39 M1 20H39" stroke="#26211B" stroke-width="0.5" stroke-dasharray="2 3"></path>
         </svg>
         <span style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1;">
-          <span style="font-weight: 800; font-size: 18px; letter-spacing: 0.34em; text-transform: uppercase;">RELOJ&nbsp;181</span>
-          <span style="font-family: 'Space Mono', monospace; font-size: 9.5px; letter-spacing: 0.18em; color: #8B7A69; margin-top: 3px;">R-181 · FOTO / VIDEO</span>
+          <span style="font-weight: 800; font-size: {{ brandSize }}px; letter-spacing: 0.34em; text-transform: uppercase;">RELOJ&nbsp;181</span>
+          <span style="font-family: 'Space Mono', monospace; font-size: {{ subBrandSize }}px; letter-spacing: 0.18em; color: #8B7A69; margin-top: 3px;">R-181 · FOTO / VIDEO</span>
         </span>
       </button>
       <nav style="display: flex; align-items: center; gap: 4px; flex-wrap: wrap;">
-        <button onClick="{{ goHome }}" style="background: none; border: none; cursor: pointer; font-size: 13.5px; font-weight: 700; color: #4A4034; padding: 8px 12px; border-radius: 999px;" style-hover="background: #EEE3D3;">Inicio</button>
-        <button onClick="{{ goSmash }}" style="background: #FBEDC6; border: 1px solid #E9CE86; cursor: pointer; font-size: 13.5px; font-weight: 800; color: #4E3806; padding: 8px 15px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px;" style-hover="background: #F7E1A6;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #E9A81C;"></span>Smash Cakes</button>
-        <button onClick="{{ goBodas }}" style="background: #F5EFE4; border: 1px solid #DFD1B6; cursor: pointer; font-size: 13.5px; font-weight: 800; color: #463C2C; padding: 8px 15px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px;" style-hover="background: #ECE1CC;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #B99C6B;"></span>Eventos</button>
-        <button onClick="{{ goNegocios }}" style="background: none; border: none; cursor: pointer; font-size: 13.5px; font-weight: 700; color: #4A4034; padding: 8px 12px; border-radius: 999px;" style-hover="background: #EEE3D3;">Para negocios</button>
-        <button onClick="{{ goCine }}" style="background: #0C0C0D; border: none; cursor: pointer; font-size: 13.5px; font-weight: 800; color: #F1ECE2; padding: 8px 15px; border-radius: 999px; display: inline-flex; align-items: center; gap: 7px;" style-hover="background: #262626; color: #F1ECE2;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #C0392B;"></span>Cine</button>
-        <button onClick="{{ toggleMenu }}" style="background: #26211B; border: none; cursor: pointer; font-size: 13.5px; font-weight: 800; color: #F7F1E8; padding: 8px 15px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px;" style-hover="background: #3E362C;">Categorías <span style="font-size: 10px;">▾</span></button>
+        <button onClick="{{ goHome }}" style="background: none; border: none; cursor: pointer; font-size: {{ navTextSize }}px; font-weight: 700; color: #4A4034; padding: {{ navPadding }}; border-radius: 999px;" style-hover="background: #EEE3D3;">Inicio</button>
+        <button onClick="{{ goSmash }}" style="background: #FBEDC6; border: 1px solid #E9CE86; cursor: pointer; font-size: {{ navTextSize }}px; font-weight: 800; color: #4E3806; padding: {{ navPadding }}; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px;" style-hover="background: #F7E1A6;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #E9A81C;"></span>Smash Cakes</button>
+        <button onClick="{{ goBodas }}" style="background: #F5EFE4; border: 1px solid #DFD1B6; cursor: pointer; font-size: {{ navTextSize }}px; font-weight: 800; color: #463C2C; padding: {{ navPadding }}; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px;" style-hover="background: #ECE1CC;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #B99C6B;"></span>Eventos</button>
+        <button onClick="{{ goNegocios }}" style="background: none; border: none; cursor: pointer; font-size: {{ navTextSize }}px; font-weight: 700; color: #4A4034; padding: {{ navPadding }}; border-radius: 999px;" style-hover="background: #EEE3D3;">Para negocios</button>
+        <button onClick="{{ goCine }}" style="background: #0C0C0D; border: none; cursor: pointer; font-size: {{ navTextSize }}px; font-weight: 800; color: #F1ECE2; padding: {{ navPadding }}; border-radius: 999px; display: inline-flex; align-items: center; gap: 7px;" style-hover="background: #262626; color: #F1ECE2;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #C0392B;"></span>Cine</button>
+        <button onClick="{{ toggleMenu }}" style="background: #26211B; border: none; cursor: pointer; font-size: {{ navTextSize }}px; font-weight: 800; color: #F7F1E8; padding: {{ navPadding }}; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px;" style-hover="background: #3E362C;">Categorías <span style="font-size: 10px;">▾</span></button>
       </nav>
-      <a href="{{ waGeneral }}" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #2E7D4F; color: #F2F8EF; padding: 10px 18px; border-radius: 999px; font-size: 13.5px; font-weight: 800; box-shadow: 0 8px 20px rgba(46,125,79,0.28);" style-hover="background: #256540; color: #F2F8EF;">
+      <a href="{{ waGeneral }}" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #2E7D4F; color: #F2F8EF; padding: {{ ctaPadding }}px 18px; border-radius: 999px; font-size: {{ ctaTextSize }}px; font-weight: 800; box-shadow: 0 8px 20px rgba(46,125,79,0.28);" style-hover="background: #256540; color: #F2F8EF;">
         <span style="width: 7px; height: 7px; border-radius: 50%; background: #A8D8B4;"></span>WhatsApp
       </a>
     </div>
     <div style="border-top: 1px dashed #E0D3BF; background: #F1E9DB;">
-      <div style="max-width: 1220px; margin: 0 auto; padding: 6px 24px; font-family: 'Space Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; color: #9A8776; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+      <div style="max-width: 1220px; margin: 0 auto; padding: {{ stripPadding }}px 24px; font-family: 'Space Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; color: #9A8776; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
         <span style="color: #B7A794;">reloj181.mx</span><span style="color: #26211B; font-weight: 700;">{{ path }}</span>
         <span style="margin-left: auto; color: #B7A794;">GDL — CDMX — CUERNAVACA</span>
       </div>
@@ -620,28 +620,22 @@
   &quot;showFloatingCta&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Contacto&quot;}
 }">
 class Component extends DCLogic {
-  constructor(props) { super(props); this.carousel = React.createRef(); this.hideTimer = null; }
-  state = { page: "home", menuOpen: false, sent: false, headerVisible: true };
+  constructor(props) { super(props); this.carousel = React.createRef(); }
+  state = { page: "home", menuOpen: false, sent: false, isScrolled: false };
 
   componentDidMount() {
-    window.addEventListener("mousemove", this.handleMouseMove);
+    this.handleScroll();
+    window.addEventListener("scroll", this.handleScroll, { passive: true });
   }
 
   componentWillUnmount() {
-    window.removeEventListener("mousemove", this.handleMouseMove);
-    if (this.hideTimer) clearTimeout(this.hideTimer);
+    window.removeEventListener("scroll", this.handleScroll);
   }
 
-  handleMouseMove = (e) => {
-    if (e.clientY <= 96) {
-      if (this.hideTimer) clearTimeout(this.hideTimer);
-      if (!this.state.headerVisible) this.setState({ headerVisible: true });
-      return;
-    }
-    if (this.state.headerVisible) {
-      if (this.hideTimer) clearTimeout(this.hideTimer);
-      this.hideTimer = setTimeout(() => this.setState({ headerVisible: false }), 140);
-    }
+  handleScroll = () => {
+    if (typeof window === "undefined") return;
+    const isScrolled = window.scrollY > 18;
+    if (this.state.isScrolled !== isScrolled) this.setState({ isScrolled });
   };
 
   go(page) {
@@ -823,12 +817,22 @@ class Component extends DCLogic {
       { tag: "Premium", nombre: "Comercial de marca", precio: "Cotización", incluye: ["Video comercial 30-60s", "Guion y dirección", "Tomas con drone", "Fotos fijas de campaña"] },
     ];
 
+    const compact = this.state.isScrolled;
+
     return {
       path: isCategory ? cat.slug : (page === "home" ? "/" : "/" + page),
       isHome: page === "home", isCategory, cat,
-      headerTransform: this.state.headerVisible ? "0" : "-100%",
-      headerOpacity: this.state.headerVisible ? "1" : "0",
-      headerPointerEvents: this.state.headerVisible ? "auto" : "none",
+      bodyPaddingTop: compact ? 96 : 104,
+      headerShadow: compact ? "0 8px 22px rgba(38,33,27,0.08)" : "none",
+      headerRowPadding: compact ? 10 : 12,
+      stripPadding: compact ? 4 : 6,
+      logoSize: compact ? 32 : 34,
+      brandSize: compact ? 16 : 18,
+      subBrandSize: compact ? 8.8 : 9.5,
+      navTextSize: compact ? 13 : 13.5,
+      navPadding: compact ? "7px 12px" : "8px 12px",
+      ctaPadding: compact ? 9 : 10,
+      ctaTextSize: compact ? 13 : 13.5,
       isNegocios: page === "negocios", isContacto: page === "contacto", isAviso: page === "aviso",
       catList, destacados, testimonios, clientes, negociosPaquetes,
       cineProyectos, cvExperiencia, cvSkills, cvEquipo,
